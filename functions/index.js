@@ -24,7 +24,6 @@ const getUser = object => {
 	return {
 		name: object.name,
 		age: object.age,
-		userId: object.id,
 		height: object.height,
 		braSize: object.braSize,
 		weight: object.weight,
@@ -73,8 +72,8 @@ exports.addUser = functions.https.onRequest((request, response) => {
 
 	return admin
 		.database()
-		.ref("user")
-		.push(getUser(data))
+		.ref(`user/${data.id}`)
+		.set(getUser(data))
 		.then(snapshot => {
 			console.log(snapshot);
 			response.status(200).send("Added");
