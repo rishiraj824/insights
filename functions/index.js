@@ -6,17 +6,6 @@ const admin = require("firebase-admin");
 
 admin.initializeApp(functions.config().firebase);
 
-exports.getAllDresses = functions.https.onRequest((request, response) => {
-	return admin
-		.database()
-		.ref("/dress")
-		.once("value")
-		.then(snapshot => {
-			console.log(snapshot);
-			response.send(snapshot.val());
-		});
-});
-
 const getDress = object => {
 	return {
 		type: object.type,
@@ -33,9 +22,8 @@ const getDress = object => {
 
 const getUser = object => {
 	return {
-		type: object.name,
+		name: object.name,
 		age: object.age,
-		userId: object.id,
 		height: object.height,
 		braSize: object.braSize,
 		weight: object.weight,
@@ -44,6 +32,17 @@ const getUser = object => {
 		buttShape: object.buttShape
 	};
 };
+
+exports.getAllDresses = functions.https.onRequest((request, response) => {
+	return admin
+		.database()
+		.ref("/dress")
+		.once("value")
+		.then(snapshot => {
+			console.log(snapshot);
+			response.send(snapshot.val());
+		});
+});
 
 exports.addDress = functions.https.onRequest((request, response) => {
 	if (request.method !== "POST") {
@@ -73,10 +72,30 @@ exports.addUser = functions.https.onRequest((request, response) => {
 
 	return admin
 		.database()
-		.ref("user")
-		.push(getUser(data))
+		.ref(`user/${data.id}`)
+		.set(getUser(data))
 		.then(snapshot => {
 			console.log(snapshot);
 			response.status(200).send("Added");
+		});
+});
+
+exports.getUser = functions.https.onRequest((request, response) => {
+	const reqUserId = request.params.userId;
+	console.log(reqUserId);
+
+	return admin
+		.database()
+		.ref("user")
+		.once("value")
+		.then(snapshot => {
+			snapshot.forEach(user => {
+				if (user.userId === reqUserId) {
+					response.send(user);
+					return;
+				}
+			});
+			console.log(snapshot);
+			response.status(200).send("User Not Found");
 		});
 });
