@@ -39,18 +39,7 @@ class Onboarding extends Component {
         super(props);
         this.state = {
             isShowing: true,
-            step:0,
-            values: {
-                height: {
-                    feet:4,
-                    inches:1
-                },
-                weight: '120',
-                cup:{
-                    size:'35',
-                    alpha: 'A'
-                }
-            }
+            step:0
         }
     }
     next = () => this.setState({ step: this.state.step + 1 });
@@ -70,10 +59,10 @@ class Onboarding extends Component {
     }
 
     handleChange = (updated) => {
-        const { state } = this;
-        this.setState({ 
+        const { props } = this;
+        this.props.onChange({ 
             values:{
-                ...state.values,
+                ...props.values,
                 ...updated
             } 
         });
@@ -82,7 +71,7 @@ class Onboarding extends Component {
     onChange = (e) => {
         this.props.onChange({
             values: {
-                ...this.state.values,
+                ...this.props.values,
                 weight: e.target.value
             }
         })
@@ -90,8 +79,8 @@ class Onboarding extends Component {
 
 
     render() {
-        const { isShowing, step, values } = this.state;
-        
+        const { isShowing, step} = this.state;
+        const { values } = this.props;
         return (<Modal
                 className="modal"
                 show={isShowing}
@@ -100,13 +89,13 @@ class Onboarding extends Component {
                     <div>
                 <div className="question">
                     <h3>How tall are you?</h3>
-                    <Select onChange={(e)=> this.onChange({height: {...values.height,feet:e.target.value}})} value={values.height.feet} options={feet}/>
-                    <Select onChange={(e)=> this.onChange({height: {...values.height,inches:e.target.value}})} value={values.height.inches} options={inches}/>            
+                    <Select onChange={(value)=> this.handleChange({height: {...values.height,feet:value.value}})} value={values.height.feet} options={feet}/>
+                    <Select onChange={(value)=> this.handleChange({height: {...values.height,inches:value.value}})} value={values.height.inches} options={inches}/>            
                 </div>   
                 <div className="question">
                     <h3>What is your bra size?</h3>
-                    <Select onChange={(e)=> this.onChange({size: {...values.cup,size:e.target.value}})} value={values.cup.size} options={cup} />
-                    <Select onChange={(e)=> this.onChange({size: {...values.cup,alpha:e.target.value}})} value={values.cup.alpha} options={cupsize} />                                                   
+                    <Select onChange={(value)=> this.handleChange({size: {...values.cup,size:value.value}})} value={values.cup.size} options={cup} />
+                    <Select onChange={(value)=> this.handleChange({size: {...values.cup,alpha:value.value}})} value={values.cup.alpha} options={cupsize} />                                                   
                 </div>   
                 <div className="question">
                     <h3>What is your weight?</h3>
@@ -126,7 +115,7 @@ class Onboarding extends Component {
 const mapStateToProps = state => {
 	return {
         profile: state.firebase.profile,
-        questions: Object.keys(state.onboarding.questions).map(key=>state.onboarding.questions[key])
+        values: state.onboarding.values
 	};
 };
 

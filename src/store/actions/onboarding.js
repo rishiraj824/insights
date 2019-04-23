@@ -14,7 +14,7 @@ export const addUser = (body) => dispatch => {
         body
     } )
 		.then( resp => {
-			return resp.json()
+			return resp.json && resp.json() || {}
 		} )
 		.then( response => {
             dispatch( {

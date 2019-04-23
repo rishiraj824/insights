@@ -1,20 +1,27 @@
 
 const initState = {
-    questions: {},    
+    values: {
+      height: {
+          feet:4,
+          inches:1
+      },
+      weight: '120',
+      cup:{
+          size:'35',
+          alpha: 'A'
+      }
+    },
     open: false
   }
   
   const onboarding = (state = initState, action) => {
     switch(action.type){
       case 'ON_RESPONSE_CHANGE':
-        return {
+        return {          
           ...state,
-          questions: {
-            ...state.questions,
-            [action.payload.id]: {
-              ...state.questions[action.payload.id],
-              ...action.payload
-            }
+          values: {
+            ...state.values,
+            ...action.payload.values
           }
         }
       case 'OPEN_ONBOARDING':

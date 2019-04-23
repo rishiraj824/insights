@@ -11,7 +11,7 @@ class Three extends Component {
     render() {
         return (
             <div>
-                one
+            three
             </div>
         );
     }
