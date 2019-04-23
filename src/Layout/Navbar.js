@@ -1,20 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 
 const Navbar = props => {
-	const { auth, profile, signIn } = props;
-	console.log(auth);
-	const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+	const { auth, profile } = props;
+	
+	const links = auth.uid ? null : <SignedOutLinks />;
 
 	return (
 		<nav>
-			<div className="container">
+			<h2 className="logo">
 				<Link to="/" className="brand-logo">
 					PrimeFit
 				</Link>
+				<p className="caption">Your way to a perfect fit.</p>
+			</h2>     
+			<div className="container">
 				{links}
 			</div>
 		</nav>
@@ -22,7 +25,6 @@ const Navbar = props => {
 };
 
 const mapStateToProps = state => {
-	// console.log(state);
 	return {
 		auth: state.firebase.auth,
 		profile: state.firebase.profile

@@ -1,18 +1,13 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import firebase from "firebase";
-import firebaseui from "firebaseui";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./Layout/Navbar";
+import Page from "./Layout/index";
 
 class App extends Component {
 	render() {
 		return (
 			<Router>
-				<div>
-					<Navbar />
-				</div>
+				<Page />
 			</Router>
 		);
 	}

@@ -1,3 +1,8 @@
+import { fetch as fetchPolyfill } from 'whatwg-fetch'
+import config from '../../config/index';
+
+const host = config.host;
+
 export const signIn = credentials => {
 	return (dispatch, getState, { getFirebase }) => {
 		const firebase = getFirebase();
@@ -5,7 +10,9 @@ export const signIn = credentials => {
 		firebase
 			.auth()
 			.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-			.then(() => {
+			.then((res) => {
+				console.log(res);
+				fetchPolyfill(`${host}/getUser/userId=${res.userId}`)
 				dispatch({ type: "LOGIN_SUCCESS" });
 			})
 			.catch(err => {
