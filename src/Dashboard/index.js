@@ -4,10 +4,11 @@ import Onboarding from "../Onboarding";
 import Search from '../Search/index';
 
 const Dashboard = props => {
+	console.log(props);
 	return (
 		<div className="dashboard">
 			<Navbar />
-			{props.profile.isEmpty ? <Onboarding/>:<Search />}
+			{props.openOnboarding ? <Onboarding/>:<Search />}
 		</div>
 	);
 };

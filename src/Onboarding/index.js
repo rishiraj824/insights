@@ -96,6 +96,8 @@ class Onboarding extends Component {
                 className="modal"
                 show={isShowing}
                 close={this.closeModalHandler}>
+                {step===0&&
+                    <div>
                 <div className="question">
                     <h3>How tall are you?</h3>
                     <Select onChange={(e)=> this.onChange({height: {...values.height,feet:e.target.value}})} value={values.height.feet} options={feet}/>
@@ -109,7 +111,8 @@ class Onboarding extends Component {
                 <div className="question">
                     <h3>What is your weight?</h3>
                     <Input value={values.weight} onChange={this.onChange} />
-                </div>  
+                </div>
+                </div>} 
                 {step<3&&<button onClick={this.next}>Next</button>}
                 {step>0&&<button onClick={this.prev}>Back</button>}             
                 {step===1&&<One />}

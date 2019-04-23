@@ -1,6 +1,7 @@
 
 const initState = {
     questions: {},    
+    open: false
   }
   
   const onboarding = (state = initState, action) => {
@@ -16,7 +17,11 @@ const initState = {
             }
           }
         }
-
+      case 'OPEN_ONBOARDING':
+        return {
+          ...state,
+          open: true
+        }
       default:
         return state
     }
