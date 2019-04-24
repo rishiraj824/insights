@@ -9,7 +9,12 @@ const initState = {
       cup:{
           size:'35',
           alpha: 'A'
-      }
+      },
+      shoulder: '2',
+      waist: '2',
+      hip: '2',
+      bellyShape:'2',
+      buttShape: '2'
     },
     open: false
   }

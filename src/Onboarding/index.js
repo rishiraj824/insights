@@ -81,7 +81,6 @@ class Onboarding extends Component {
     render() {
         const { isShowing, step} = this.state;
         const { values } = this.props;
-        console.log(values);
         return (<Modal
                 className="modal"
                 show={isShowing}
@@ -104,10 +103,9 @@ class Onboarding extends Component {
                 </div>
                 </div>} 
                 {step>0&&<button onClick={this.prev}>Back</button>}   
-                {step<3&&<button onClick={this.next}>Next</button>}          
+                {step<2&&<button onClick={this.next}>Next</button>}          
                 {step===1&&<One />}
                 {step===2&&<Two />}
-                {step===3&&<Three/>}
             </Modal>
         );
     };

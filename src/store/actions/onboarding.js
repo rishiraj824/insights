@@ -9,6 +9,7 @@ export const onChange = (payload) => dispatch => {
 }
 
 export const addUser = (body) => dispatch => {
+    console.log(body);
     fetch( `${host}/addUser`, {
         method: 'POST',
         body
