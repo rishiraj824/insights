@@ -12,10 +12,13 @@ export const addUser = (body) => dispatch => {
     console.log(body);
     fetch( `${host}/addUser`, {
         method: 'POST',
-        body
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
     } )
 		.then( resp => {
-			return resp.json && resp.json() || {}
+			return resp.json()
 		} )
 		.then( response => {
             dispatch( {

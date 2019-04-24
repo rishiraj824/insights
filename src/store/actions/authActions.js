@@ -27,11 +27,13 @@ export const signIn = credentials => {
 export const fetchUser = (id) => dispatch => {
 	fetch( `${host}/getUser?userId=${id}` )
 		.then( resp => {
-			console.log(resp.json);
 			return resp.text()
 		} )
 		.then( response => {
 			console.log(response);
+			if(typeof response === 'string') {
+				response = JSON.parse(response);
+			}
 			if ( !response[ 'name' ] ) {
 				dispatch( {
 					type: "OPEN_ONBOARDING"
