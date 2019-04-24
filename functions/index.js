@@ -76,7 +76,7 @@ exports.addUser = functions.https.onRequest((request, response) => {
 			return;
 		}
 		const data = request.body;
-		console.log(data);
+		console.log(JSON.stringify(data));
 
 		return admin
 			.database()

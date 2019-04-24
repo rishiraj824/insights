@@ -1,14 +1,15 @@
 .modal-wrapper {
     background: white;
-    border: 1px solid #d0cccc;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    box-shadow: 0px -3px 18px 0px rgba(0, 0, 0, 0.09), 0 7px 20px 0 rgba(0, 0, 0, 0.18);
     margin: 100px auto 0;
+    -webkit-transition: all .8s;
     transition: all .8s;
-    width: 60%;
+    width: 92%;
+    height: 80vh;
+    border-radius: 16px;
 }
 
 .modal-header {
-    background: #263238;
     height: 40px;
     line-height: 40px;
     padding: 5px 20px;
@@ -24,7 +25,6 @@
 
 .modal-body {
     padding: 10px 15px;
-    text-align: center;
 }
 
 .modal-footer {

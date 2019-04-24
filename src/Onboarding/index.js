@@ -85,13 +85,15 @@ class Onboarding extends Component {
 
                  
                 <div className="question">
-                    <h3>What is your age?</h3>
-                    <Input value={values.age} onChange={this.onChange} />years
+                    <h3>What is your age? ( We won't tell anyone, Promise. )</h3>
+                    <div className={"flex"}><Input value={values.age} onChange={this.onChange} /><p>&nbsp;years</p> </div>
                 </div>  
                 <div className="question">
                     <h3>How tall are you?</h3>
-                    <Select onChange={(value)=> this.handleChange({height: {...values.height,feet:value.value}})} value={values.height.feet} options={feet}/>ft.
-                    <Select onChange={(value)=> this.handleChange({height: {...values.height,inches:value.value}})} value={values.height.inches} options={inches}/>inches            
+                    <Input value={values.height.feet}  onChange={ (value)=> this.handleChange({height: {...values.height,feet:value.value}})} />&nbsp;ft.&nbsp;&nbsp;
+                    <Input value={values.height.inches} onChange={(value)=> this.handleChange({height: {...values.height,inches:value.value}})} />&nbsp;inches.
+                    {/* <Select onChange={(value)=> this.handleChange({height: {...values.height,feet:value.value}})} value={values.height.feet} options={feet}/>ft.
+                    <Select onChange={(value)=> this.handleChange({height: {...values.height,inches:value.value}})} value={values.height.inches} options={inches}/>inches             */}
                 </div>   
                 <div className="question">
                     <h3>What is your bra size?</h3>

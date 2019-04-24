@@ -32,9 +32,14 @@ export const fetchUser = (id) => dispatch => {
 		.then( response => {
 			console.log(response);
 			if(typeof response === 'string') {
-				response = JSON.parse(response);
+				try{
+					response = JSON.parse(response);
+				}catch(err){
+					console.log("No response while fetching user data...")
+				}
 			}
-			if ( !response[ 'name' ] ) {
+			if (response === undefined || !response[ 'name' ] ) {
+				console.log("Opening")
 				dispatch( {
 					type: "OPEN_ONBOARDING"
 				} );

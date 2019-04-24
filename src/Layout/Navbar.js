@@ -14,9 +14,10 @@ const Navbar = props => {
 				<Link to="/" className="brand-logo">
 					PrimeFit
 				</Link>
-				<p className="caption">Your way to a perfect fit.</p>
-			</h2>     
-			<div className="container">
+				
+			</h2>    
+			<p className="caption">Your way to a perfect fit.</p> 
+			<div className="links">
 				{links}
 			</div>
 		</nav>

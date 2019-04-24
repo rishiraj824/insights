@@ -14,7 +14,7 @@ class Page extends Component {
 	render() {
 		const { auth, openOnboarding } = this.props;	
 		return (
-			<div className={`container ${auth.uid?'':'card'}`}>
+			<div className={`${auth.uid?'':'card'}`}>
 				<div>           
 					<Navbar />
 					{auth.uid&&<Dashboard openOnboarding={openOnboarding}/>}

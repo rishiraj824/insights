@@ -1,24 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+
+* {
+	font-family: "Comfortaa", sans-serif;
+}
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	padding: 0;
+	font-family: "Comfortaa", sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 input {
-  -webkit-appearance: none;
-  outline: 0;
-  border: 0;
-  margin: 0;
+	-webkit-appearance: none;
+	outline: 0;
+	border: 1px solid #ccc;
+	padding: 8px;
+	border-radius: 4px;
+	align-items: center;
+	background-color: hsl(0, 0%, 100%);
+	border-color: hsl(0, 0%, 80%);
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	font-size: 16px;
+}
+
+button {
+	font-size: 16px;
+	margin: 10px;
+	color: white;
+	background-color: #ff5a6e;
+	padding: 8px;
+	-webkit-appearance: none;
+	min-width: 10rem;
+	border-radius: 4px;
+	align-items: center;
+	border: none;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
