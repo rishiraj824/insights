@@ -1,19 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import '../Home.css';
 import { signIn, signUp } from "../store/actions/authActions";
 import { connect } from "react-redux";
 
 const SignedOutLinks = ({ signIn, signUp }) => {
 	return (
-		<div>
-			<ul className="right">
-				<li>
-					<a onClick={signIn}>Sign Up With Google</a>
-				</li>
-				<li>
-					<a onClick={signUp}>Sign In With Google</a>
-				</li>
-			</ul>
+		<div className='flex links'>
+				<p className="link">New User? </p>
+				<div className="google-auth link" onClick={signUp}>Sign Up With Google</div>	
+				<div className="divider link"></div>	
+				<div className="google-auth link" onClick={signIn}>Sign In With Google</div>
 		</div>
 	);
 };
