@@ -6,7 +6,6 @@ import Search from '../Search/index';
 const Dashboard = props => {
 	return (
 		<div className="dashboard">
-			<Navbar />
 			{props.openOnboarding ? <Onboarding/>:<Search />}
 		</div>
 	);

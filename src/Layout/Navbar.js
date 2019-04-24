@@ -8,7 +8,6 @@ const Navbar = props => {
 	const { auth, profile } = props;
 	
 	const links = auth.uid ? null : <SignedOutLinks />;
-
 	return (
 		<nav>
 			<h2 className="logo">

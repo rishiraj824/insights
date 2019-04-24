@@ -6,7 +6,7 @@ const initState = {
           inches:'1'
       },
       weight: '120',
-      cup:{
+      braSize:{
           size:'35',
           alpha: 'A'
       },
@@ -14,7 +14,9 @@ const initState = {
       waist: '2',
       hip: '2',
       bellyShape:'2',
-      buttShape: '2'
+      buttShape: '2',
+      bodyShape: 'M',
+      age: '20'
     },
     open: false
   }

@@ -20,17 +20,12 @@ const inches = [
     { value: '3', label: '3' }
   ];
 
-const cup = [
-    { value: '36', label: '36' },
-    { value: '35', label: '35' },
-    { value: '34', label: '34' }
+const braSize = [
+    { value: '36 A', label: '36 A' },
+    { value: '35 B', label: '35 B' },
+    { value: '34 C', label: '34 C' }
   ];
 
-const cupsize = [
-    { value: 'A', label: 'A' },
-    { value: 'B', label: 'B' },
-    { value: 'C', label: 'C' }
-  ];
 
 
 class Onboarding extends Component {
@@ -87,6 +82,12 @@ class Onboarding extends Component {
                 close={this.closeModalHandler}>
                 {step===0&&
                     <div>
+
+                 
+                <div className="question">
+                    <h3>What is your age?</h3>
+                    <Input value={values.age} onChange={this.onChange} />years
+                </div>  
                 <div className="question">
                     <h3>How tall are you?</h3>
                     <Select onChange={(value)=> this.handleChange({height: {...values.height,feet:value.value}})} value={values.height.feet} options={feet}/>ft.
@@ -94,8 +95,7 @@ class Onboarding extends Component {
                 </div>   
                 <div className="question">
                     <h3>What is your bra size?</h3>
-                    <Select onChange={(value)=> this.handleChange({size: {...values.cup,size:value.value}})} value={values.cup.size} options={cup} />
-                    <Select onChange={(value)=> this.handleChange({size: {...values.cup,alpha:value.value}})} value={values.cup.alpha} options={cupsize} />   
+                    <Select onChange={(value)=> this.handleChange({braSize: value.value})} value={values.braSize} options={braSize} /> 
                 </div>   
                 <div className="question">
                     <h3>What is your weight?</h3>

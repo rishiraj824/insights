@@ -8,16 +8,16 @@ class Page extends Component {
 
 	componentDidMount(){
 		const { auth } = this.props;
-		this.props.fetchUser(auth.uid)
+		auth.uid && this.props.fetchUser(auth.uid)
 	}
 
 	render() {
-		const { auth, profile, openOnboarding } = this.props;	
+		const { auth, openOnboarding } = this.props;	
 		return (
 			<div className={`container ${auth.uid?'':'card'}`}>
 				<div>           
 					<Navbar />
-					<Dashboard openOnboarding={openOnboarding}/>
+					{auth.uid&&<Dashboard openOnboarding={openOnboarding}/>}
 				</div>
 			</div>
 		);
@@ -28,7 +28,6 @@ class Page extends Component {
 const mapStateToProps = state => {
 	return {
 		auth: state.firebase.auth,
-		profile: state.firebase.profile,
 		openOnboarding: state.onboarding.open
 	};
 };
