@@ -5,6 +5,9 @@ const admin = require("firebase-admin");
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 
 admin.initializeApp(functions.config().firebase);
+const cors = require("cors")({
+	origin: true
+});
 
 const getDress = object => {
 	return {
@@ -34,68 +37,70 @@ const getUser = object => {
 };
 
 exports.getAllDresses = functions.https.onRequest((request, response) => {
-	return admin
-		.database()
-		.ref("/dress")
-		.once("value")
-		.then(snapshot => {
-			console.log(snapshot);
-			response.send(snapshot.val());
-		});
+	cors(request, response, () => {
+		return admin
+			.database()
+			.ref("/dress")
+			.once("value")
+			.then(snapshot => {
+				console.log(snapshot);
+				response.send(snapshot.val());
+			});
+	});
 });
 
 exports.addDress = functions.https.onRequest((request, response) => {
-	if (request.method !== "POST") {
-		response.status(400).send("Please send a POST request");
-		return;
-	}
-	const data = request.body;
-	console.log(data);
+	cors(request, response, () => {
+		if (request.method !== "POST") {
+			response.status(400).send("Please send a POST request");
+			return;
+		}
+		const data = request.body;
+		console.log(data);
 
-	return admin
-		.database()
-		.ref("dress")
-		.push(getDress(data))
-		.then(snapshot => {
-			console.log(snapshot);
-			response.status(200).send("Added");
-		});
+		return admin
+			.database()
+			.ref("dress")
+			.push(getDress(data))
+			.then(snapshot => {
+				console.log(snapshot);
+				response.status(200).send("Added");
+			});
+	});
 });
 
 exports.addUser = functions.https.onRequest((request, response) => {
-	if (request.method !== "POST") {
-		response.status(400).send("Please send a POST request");
-		return;
-	}
-	const data = request.body;
-	console.log(data);
+	cors(request, response, () => {
+		if (request.method !== "POST") {
+			response.status(400).send("Please send a POST request");
+			return;
+		}
+		const data = request.body;
+		console.log(data);
 
-	return admin
-		.database()
-		.ref(`user/${data.id}`)
-		.set(getUser(data))
-		.then(snapshot => {
-			console.log(snapshot);
-			response.status(200).send("Added");
-		});
+		return admin
+			.database()
+			.ref(`user/${data.id}`)
+			.set(getUser(data))
+			.then(snapshot => {
+				console.log(snapshot);
+				response.status(200).send("Added");
+			});
+	});
 });
 
 exports.getUser = functions.https.onRequest((request, response) => {
-	const reqUserId = request.params.userId;
-	console.log(reqUserId);
+	cors(request, response, () => {
+		const reqUserId = request.query.userId;
+		console.log(JSON.stringify(request.params));
 
-	return admin
-		.database()
-		.ref("user")
-		.once("value")
-		.then(snapshot => {
-			snapshot.forEach(user => {
-				if (user.userId === reqUserId) {
-					response.send(user);
-					return;
-				}
+		return admin
+			.database()
+			.ref(`user/${reqUserId}`)
+			.once("value")
+			.then(snapshot => {
+				console.log(snapshot);
+				response.send(snapshot.val());
 			});
-			console.log(snapshot);
-			response.status(200).send("User Not Found");
-		});
+	});
 });
