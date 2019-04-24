@@ -6,10 +6,7 @@ const initState = {
           inches:'1'
       },
       weight: '120',
-      braSize:{
-          size:'35',
-          alpha: 'A'
-      },
+      braSize:'35 C',
       shoulder: '2',
       waist: '2',
       hip: '2',

@@ -6,6 +6,9 @@
 .row {
 	flex-direction: row;
 }
+.wrap {
+	flex-wrap : wrap;
+}
 .column {
 	flex-direction: column;
 }
@@ -18,11 +21,49 @@
 	width: 100%;
 	min-height: 70vh;
 }
+
+.main{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 600px) {
+  .main{
+    position: relative;
+  }
+}
+
+.slider-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.body-ref-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.body-ref{
+  height: 68vh;
+}
+
+.name{
+  font-size: 32px;
+}
+.pink {
+	color: #ff5a6e;
+}
 .logo {
-  color: #FF5A6E;
+	color: #ff5a6e;
 	position: relative;
-  text-align: center;
-  margin-right: 1rem;
+	text-align: center;
+	margin-right: 1rem;
 }
 .google-auth {
 	display: flex;

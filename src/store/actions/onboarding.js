@@ -18,7 +18,7 @@ export const addUser = (body) => dispatch => {
         body: JSON.stringify(body)
     } )
 		.then( resp => {
-			return resp.json()
+			return resp.text()
 		} )
 		.then( response => {
             dispatch( {

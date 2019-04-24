@@ -14,12 +14,10 @@ class Page extends Component {
 	render() {
 		const { auth, openOnboarding } = this.props;	
 		return (
-			<div className={`${auth.uid?'':'card'}`}>
 				<div>           
 					<Navbar />
 					{auth.uid&&<Dashboard openOnboarding={openOnboarding}/>}
 				</div>
-			</div>
 		);
 	}
 };

@@ -1,159 +1,185 @@
 nav {
-	width: 100%;
+	/* width: 100%; */
 	height: 4rem;
-	background-color:#121354;
+	background-color: #121354;
 	position: absolute;
 	top: 0;
 	left: 0;
-  right: 0;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  padding: 8px 16px;
+	right: 0;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	padding: 8px 16px;
 }
 
 .links {
-    flex-direction: column;
-    width: auto;
+	flex-direction: column;
+  width: auto;
+  margin-left: auto;
+  margin-right: 0.5rem;
 }
 .link {
-    margin: 15px 0;
-    align-self: center;
+  cursor: pointer;
+	font-size: 16px;
+	margin: 10px;
+	color: white;
+	font-family: "Roboto";
+	font-weight: bold;
+	padding: 8px;
+	-webkit-appearance: none;
+	width: 10rem;
+	border-radius: 4px;
+	-webkit-align-items: center;
+	align-items: center;
+	border: none;
+	height: 2rem;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 2rem;
 }
+
+.auth {
+	background-color: #ff5a6e;
+}
+
 .card {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  background: #fff;
-  padding: 15px 20px;
-  margin: 20px auto;
-  min-height: 400px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	background: #fff;
+	padding: 15px 20px;
+	margin: 20px auto;
+	min-height: 400px;
 }
 .input {
-    border: 1px solid #ccc;
-    padding: 5px 8px;
+	border: 1px solid #ccc;
+	padding: 5px 8px;
 }
 .home-link {
-    margin: 5px auto;
+	margin: 5px auto;
 }
 .caption {
-    font-size: 16px;
-    padding: 4px;
+	font-size: 16px;
+	padding: 4px;
 }
 .divider {
-    height: 1.5px;
-    background: #bcb8b8;
-    width: 5%;
+	height: 1.5px;
+	background: #bcb8b8;
+	width: 5%;
 }
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  input[type=range]{
-    -webkit-appearance: none;
-    background: none;
-  }
-  
-  input[type=range]::-webkit-slider-runnable-track {
-    height: 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
-  }
-  
-  input[type=range]::-ms-track {
-    height: 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
-  }
-  
-  input[type=range]::-moz-range-track {
-    height: 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
-  }
-  
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #555;
-    margin-top: -5px;
-    position: relative;
-  }
-  
-  input[type=range]::-ms-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #555;
-    margin-top: -5px;
-    position: relative;
-  }
-  
-  input[type=range]::-moz-range-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #555;
-    margin-top: -5px;
-    position: relative;
-  }
-  
-  input[type=range]:focus {
-    outline: none;
-    &::-webkit-slider-thumb:after {
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #eee;
-      border-radius: 5px;
-      color: #555;
-      padding: 5px 10px;
-      border: 2px solid #555;
-    }
-    &::-ms-thumb:after {
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #eee;
-      border-radius: 5px;
-      color: #555;
-      padding: 5px 10px;
-      border: 2px solid #555;
-    }
-    &::-moz-range-thumb:after {
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #eee;
-      border-radius: 5px;
-      color: #555;
-      padding: 5px 10px;
-      border: 2px solid #555;
-    }
-  }
-  
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
-  }
-  
-  input[type=range]:focus::-ms-track {
-    background: #ccc;
-  }
-  
-  input[type=range]:focus::-moz-range-track {
-    background: #ccc;
-  }
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+	height: 5px;
+	background: #ddd;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type="range"]::-ms-track {
+	height: 5px;
+	background: #ddd;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-track {
+	height: 5px;
+	background: #ddd;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #555;
+	margin-top: -5px;
+	position: relative;
+}
+
+input[type="range"]::-ms-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #555;
+	margin-top: -5px;
+	position: relative;
+}
+
+input[type="range"]::-moz-range-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #555;
+	margin-top: -5px;
+	position: relative;
+}
+
+input[type="range"]:focus {
+	outline: none;
+	&::-webkit-slider-thumb:after {
+		position: absolute;
+		top: -35px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #eee;
+		border-radius: 5px;
+		color: #555;
+		padding: 5px 10px;
+		border: 2px solid #555;
+	}
+	&::-ms-thumb:after {
+		position: absolute;
+		top: -35px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #eee;
+		border-radius: 5px;
+		color: #555;
+		padding: 5px 10px;
+		border: 2px solid #555;
+	}
+	&::-moz-range-thumb:after {
+		position: absolute;
+		top: -35px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #eee;
+		border-radius: 5px;
+		color: #555;
+		padding: 5px 10px;
+		border: 2px solid #555;
+	}
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+	background: #ccc;
+}
+
+input[type="range"]:focus::-ms-track {
+	background: #ccc;
+}
+
+input[type="range"]:focus::-moz-range-track {
+	background: #ccc;
+}

@@ -1,11 +1,11 @@
 .modal-wrapper {
-    background: white;
-    box-shadow: 0px -3px 18px 0px rgba(0, 0, 0, 0.09), 0 7px 20px 0 rgba(0, 0, 0, 0.18);
+    /* background: white;
+    box-shadow: 0px -3px 18px 0px rgba(0, 0, 0, 0.09), 0 7px 20px 0 rgba(0, 0, 0, 0.18); */
     margin: 100px auto 0;
     -webkit-transition: all .8s;
     transition: all .8s;
     width: 92%;
-    height: 80vh;
+    min-height: 80vh; 
     border-radius: 16px;
 }
 
@@ -24,7 +24,14 @@
 }
 
 .modal-body {
-    padding: 10px 15px;
+    position: absolute;
+    min-height: calc(100% - 54px);
+    width: calc(100% - 54px);
+    padding: 27px ;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0px -3px 18px 0px rgba(0, 0, 0, 0.09), 0 7px 20px 0 rgba(0, 0, 0, 0.18);
+    margin-bottom: 2rem;
 }
 
 .modal-footer {
