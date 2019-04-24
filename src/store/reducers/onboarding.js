@@ -2,8 +2,8 @@
 const initState = {
     values: {
       height: {
-          feet:4,
-          inches:1
+          feet:'4',
+          inches:'1'
       },
       weight: '120',
       cup:{

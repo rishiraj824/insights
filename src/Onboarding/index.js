@@ -81,6 +81,7 @@ class Onboarding extends Component {
     render() {
         const { isShowing, step} = this.state;
         const { values } = this.props;
+        console.log(values);
         return (<Modal
                 className="modal"
                 show={isShowing}
@@ -89,21 +90,21 @@ class Onboarding extends Component {
                     <div>
                 <div className="question">
                     <h3>How tall are you?</h3>
-                    <Select onChange={(value)=> this.handleChange({height: {...values.height,feet:value.value}})} value={values.height.feet} options={feet}/>
-                    <Select onChange={(value)=> this.handleChange({height: {...values.height,inches:value.value}})} value={values.height.inches} options={inches}/>            
+                    <Select onChange={(value)=> this.handleChange({height: {...values.height,feet:value.value}})} value={values.height.feet} options={feet}/>ft.
+                    <Select onChange={(value)=> this.handleChange({height: {...values.height,inches:value.value}})} value={values.height.inches} options={inches}/>inches            
                 </div>   
                 <div className="question">
                     <h3>What is your bra size?</h3>
                     <Select onChange={(value)=> this.handleChange({size: {...values.cup,size:value.value}})} value={values.cup.size} options={cup} />
-                    <Select onChange={(value)=> this.handleChange({size: {...values.cup,alpha:value.value}})} value={values.cup.alpha} options={cupsize} />                                                   
+                    <Select onChange={(value)=> this.handleChange({size: {...values.cup,alpha:value.value}})} value={values.cup.alpha} options={cupsize} />   
                 </div>   
                 <div className="question">
                     <h3>What is your weight?</h3>
-                    <Input value={values.weight} onChange={this.onChange} />
+                    <Input value={values.weight} onChange={this.onChange} />lbs.
                 </div>
                 </div>} 
-                {step<3&&<button onClick={this.next}>Next</button>}
-                {step>0&&<button onClick={this.prev}>Back</button>}             
+                {step>0&&<button onClick={this.prev}>Back</button>}   
+                {step<3&&<button onClick={this.next}>Next</button>}          
                 {step===1&&<One />}
                 {step===2&&<Two />}
                 {step===3&&<Three/>}
