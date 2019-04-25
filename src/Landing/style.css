@@ -1,0 +1,18 @@
+.landing-container {
+	margin-top: 6rem;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+}
+
+.dress-carousel {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+	.dress-carousel {
+		justify-content: center;
+	}
+}

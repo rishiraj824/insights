@@ -1,27 +1,26 @@
 import React, { Component } from "react";
-import Dashboard from '../Dashboard/index';
-import Navbar from './Navbar';
+import Dashboard from "../Dashboard/index";
+import Navbar from "./Navbar";
+import Landing from "../Landing/index";
 import { connect } from "react-redux";
 import { fetchUser } from "../store/actions/authActions";
 
 class Page extends Component {
-
-	componentDidMount(){
+	componentDidMount() {
 		const { auth } = this.props;
-		auth.uid && this.props.fetchUser(auth.uid)
+		auth.uid && this.props.fetchUser(auth.uid);
 	}
 
 	render() {
-		const { auth, openOnboarding } = this.props;	
+		const { auth, openOnboarding } = this.props;
 		return (
-				<div>           
-					<Navbar />
-					{auth.uid&&<Dashboard openOnboarding={openOnboarding}/>}
-				</div>
+			<div>
+				{/* <Navbar /> */}
+				{auth.uid ? <Dashboard openOnboarding={openOnboarding} /> : <Landing />}
+			</div>
 		);
 	}
-};
-
+}
 
 const mapStateToProps = state => {
 	return {
@@ -33,7 +32,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		fetchUser: id => dispatch(fetchUser(id))
-	}
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
-
+	};
+};
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Page);
