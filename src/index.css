@@ -43,6 +43,7 @@ button {
 	align-items: center;
 	border: none;
   cursor: pointer;
+  transition: all 200ms
 }
 
 button:focus {
@@ -51,8 +52,9 @@ button:focus {
 }
 
 button:disabled {
-	opacity: 0.5;
-	cursor: none;
+	opacity: 0;
+  cursor: none;
+  transition: all 200ms
 }
 
 a {
