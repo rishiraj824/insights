@@ -22,11 +22,11 @@ const size = [
     {label:'', value:''},
 ]
 
-function getBase64(file) {
+function getBase64(file, callback) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      return reader.result
+      callback(reader.result);
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
@@ -43,7 +43,8 @@ const Sharer  = (props) =>  {
                     <input accept="image/*" className="file" type="file" onChange={(e)=>{
                         const { target } = e;
                         if(target.value.length > 0){
-                            upload(getBase64(target.files[0]));
+                            //getBase64(target.files[0], upload);                            
+                            upload(target.files[0]);
                         } else {
                             target.reset();
                         }

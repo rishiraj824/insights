@@ -10,19 +10,20 @@ export const openSharer = () => dispatch => dispatch({
 
 export const upload = (image) => dispatch => {
   console.log(image);
-  fetch(config.imageBB.host,{ 
+  var formData  = new FormData();
+  formData.append('image', image);
+  formData.append('type', 'file');
+  console.log(formData);
+  fetch(`https://api.imgur.com/3/image`,{ 
     method: 'POST',
     headers: {
-      'Content-type': 'application/x-www-form-urlencoded'
+      Accept: 'application/json',
+      Authorization: 'Client-ID 7b79bed272c5319',
     },
-    body: {
-      image: JSON.stringify(image)
-    },
-    query: {
-      key
-    }
+    body: formData
   })
   .then(resp=>{
+    console.log(resp);
     dispatch({
       type: 'IMAGE_UPLOADED',
       payload: resp.url
