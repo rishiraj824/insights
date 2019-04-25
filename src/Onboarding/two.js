@@ -14,7 +14,12 @@ class Two extends Component {
 	render() {
 		const { values, onChange, addUser, auth } = this.props;
 		return (
-			<div>
+			<div
+				className={"flex"}
+				style={{
+                    flexDirection: "column",
+                    alignItems: "center"
+				}}>
 				<label>Butt Shape</label>
 
 				<div className={"flex column"}>
@@ -33,6 +38,7 @@ class Two extends Component {
 					</div>
 					<input onChange={e => onChange({ ...values, bellyShape: e.target.value })} type="range" min="1" max="3" step="1" />
 				</div>
+                <br/>
 				<button
 					onClick={() =>
 						addUser({

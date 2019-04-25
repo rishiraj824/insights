@@ -199,10 +199,22 @@ class Onboarding extends Component {
 							{auth.displayName && step === 2 && <p>Almost there. Last questions </p>}
 							<br />
 							<br />
-							{step > 0 && <button onClick={this.prev}>Back</button>}
+							{step > 0 ? (
+								<button onClick={this.prev}>Back</button>
+							) : (
+								<button disabled onClick={this.prev}>
+									Back
+								</button>
+							)}
 							<br />
 							<br />
-							{step < 2 && <button onClick={this.next}>Next</button>}
+							{step < 2 ? (
+								<button onClick={this.next}>Next</button>
+							) : (
+								<button disabled onClick={this.next}>
+									Next
+								</button>
+							)}
 							<br />
 						</span>
 					)}
