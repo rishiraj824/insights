@@ -27,7 +27,7 @@ function getBase64(file) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      console.log(reader.result);
+      return reader.result
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
@@ -35,17 +35,16 @@ function getBase64(file) {
  }
 
 const Sharer  = (props) =>  {
-    const { values, onFormChange, openSharer, open } = props;
+    const { values, onFormChange, open, upload } = props;
     
     return (
         <Modal className="modal" show={open}>
             <div className="flex wrap row center">
                 <div className="box">
                     Upload
-                    <input className="file" type="file" onChange={(e)=>{
+                    <input accept="image/*" className="file" type="file" onChange={(e)=>{
                         const { target } = e;
-                        if(target.value.length > 0){     
-                            console.log(target);                       
+                        if(target.value.length > 0){
                             upload(getBase64(target.files[0]));
                         } else {
                             target.reset();
@@ -54,7 +53,7 @@ const Sharer  = (props) =>  {
                     }/>
                 </div>
                 <div className="flex column">
-                    <Rating />
+                    <Rating rating={values.rating} onChange={(rating)=>onFormChange({rating})} />
                     <label>Write a review</label>
                     <textarea rows={4} onChange={(e)=>onFormChange({ review: e.target.value})} value={values.review} />
                     <Select options={brands} onChange={(value)=>onFormChange({brand: value.value})} value={{label: values.brand, value: values.brand}}></Select>                        

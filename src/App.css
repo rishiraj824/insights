@@ -55,6 +55,9 @@
 @media only screen and (max-width: 600px) {
   .main{
     position: relative;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
   }
 
   .left{
@@ -62,7 +65,7 @@
   }
 
   .butt-ref{
-    height: 6rem;
+    height: 6rem!important;
   }
 }
 

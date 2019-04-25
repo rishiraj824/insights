@@ -80,7 +80,7 @@ input[type="range"] {
   cursor: pointer;
   border: none;
   min-width: 14rem;
-  width: 100%;
+  width: 90%;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -192,7 +192,8 @@ input[type="range"]:focus::-moz-range-track {
 	padding: 10px;
 	background: #ddd;
 	line-height: 300px;
-    position: relative;
+		position: relative;
+		cursor: pointer;
 }
 .file {
     width: 60%;
@@ -200,5 +201,7 @@ input[type="range"]:focus::-moz-range-track {
     line-height: 300px;
     padding: 0 20%;
     opacity: 0;
-	margin-top: -334px;
+    left: 0;
+    top: 0;
+		position: absolute;
 }

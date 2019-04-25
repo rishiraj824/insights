@@ -6,13 +6,15 @@ const initState = {
         brand: '',
         name: "",
         item_code: '',
-        color: '',
-        size: '',
         type: "dress",
         subType: "",
         userId: "",
         rating: 5,
         review: '',
+        meta: {
+            color: '',
+            size: ''
+        },
         likeability: 1
     }
 }

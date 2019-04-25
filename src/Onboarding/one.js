@@ -21,7 +21,13 @@ class One extends Component {
 						<div className={"flex slider-labels"}>
 							<span>Narrow</span> <span>Average</span> <span>Wide</span>
 						</div>
-						<input onChange={e => onChange({ ...values, shoulder: e.target.value })} type="range" min={"1"} max={"3"} step={"1"} />
+						<input onChange={e => onChange({ 
+								...values, 
+								bodyShape: {
+									...values.bodyShape, 
+									shoulder: e.target.value 
+								}							
+							})} type="range" min={"1"} max={"3"} step={"1"} />
 					</div>
 
 					<br />
@@ -30,7 +36,13 @@ class One extends Component {
 						<div className={"flex slider-labels"}>
 							<span>Narrow</span> <span>Average</span> <span>Wide</span>
 						</div>
-						<input onChange={e => onChange({ ...values, waist: e.target.value })} type="range" min="1" max="3" step="1" />
+						<input onChange={e => onChange({ 
+								...values, 
+								bodyShape: {
+									...values.bodyShape, 
+									waist: e.target.value
+								} 
+							})} type="range" min="1" max="3" step="1" />
 					</div>
 					<br />
 					<label>Hip</label>
@@ -38,7 +50,13 @@ class One extends Component {
 						<div className={"flex slider-labels"}>
 							<span>Narrow</span> <span>Average</span> <span>Wide</span>
 						</div>
-						<input onChange={e => onChange({ ...values, hip: e.target.value })} type="range" min="1" max="3" step="1" />
+						<input onChange={e => onChange({ 
+							...values, 
+							bodyShape: {
+								...values.bodyShape, 
+								hip: e.target.value 
+							}
+						})} type="range" min="1" max="3" step="1" />
 					</div>
 				</div>
 			</div>

@@ -9,13 +9,14 @@ export const openSharer = () => dispatch => dispatch({
 })
 
 export const upload = (image) => dispatch => {
+  console.log(image);
   fetch(config.imageBB.host,{ 
     method: 'POST',
     headers: {
       'Content-type': 'application/x-www-form-urlencoded'
     },
     body: {
-      image
+      image: JSON.stringify(image)
     },
     query: {
       key

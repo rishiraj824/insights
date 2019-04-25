@@ -12,7 +12,7 @@ const SignedInLinks = props => {
 					<NavLink to="/search">Dresses</NavLink>
 				</li>
 				<li>
-					<NavLink onClick={props.openSharer}>Share Photo</NavLink>
+					<a onClick={props.openSharer}>Share Photo</a>
 				</li>
 				<li>
 					<a onClick={props.signOut}>Log Out</a>

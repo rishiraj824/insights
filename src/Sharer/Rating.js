@@ -14,6 +14,7 @@ export default class Rating extends Component {
           rating: rating,
           temp_rating: rating
         });
+        this.props.onChange(rating);
     }
     star_over = (rating) => {        
         this.setState({
@@ -37,6 +38,7 @@ export default class Rating extends Component {
     
           stars.push(
             <label
+              key={i}
               className={klass}
               onClick={this.rate.bind(this, i)}
               onMouseOver={this.star_over.bind(this, i)}

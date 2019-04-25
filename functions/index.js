@@ -19,6 +19,7 @@ const getDress = object => {
 		userId: object.userId,
 		imagesURL: object.imagesURL,
 		likeability: object.likeability,
+		review: object.review,
 		meta: object.meta
 	};
 };
