@@ -79,6 +79,8 @@ input[type="range"] {
   background: none;
   cursor: pointer;
   border: none;
+  min-width: 14rem;
+  width: 100%;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {

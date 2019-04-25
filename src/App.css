@@ -22,10 +22,29 @@
 	min-height: 70vh;
 }
 
+.slider-labels{
+  justify-content: space-between;
+  padding: 12px;
+}
+
 .main{
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - 54px);
+  width: calc(100% - 54px);
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.left{
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right{
+  width: 50%;
   align-items: center;
   justify-content: space-around;
 }
@@ -33,6 +52,14 @@
 @media only screen and (max-width: 600px) {
   .main{
     position: relative;
+  }
+
+  .left{
+    width: 100%;
+  }
+
+  .butt-ref{
+    height: 6rem;
   }
 }
 
@@ -51,6 +78,10 @@
 
 .body-ref{
   height: 68vh;
+}
+
+.butt-ref{
+  height: 9rem;
 }
 
 .name{
