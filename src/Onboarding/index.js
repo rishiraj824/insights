@@ -176,7 +176,7 @@ class Onboarding extends Component {
 
 	render() {
 		const { isShowing, step } = this.state;
-		const { values, auth } = this.props;
+		const { values, auth, onChange } = this.props;
 		return (
 			<Modal className="modal" show={isShowing}>
 				<div className="flex row wrap main">
@@ -227,14 +227,14 @@ class Onboarding extends Component {
 							<div className="question">
 								<h3>How tall are you?</h3>
 								<input
-									onChange={value => this.handleChange({ height: { ...values.height, feet: value.value } })}
+									onChange={value => onChange({ ...values, height: { ...values.height, feet: value.value }  })}
 									style={{ width: "3rem" }}
 									type="number"
 									min="1"
 								/>
 								&nbsp;ft.&nbsp;&nbsp;
 								<input
-									onChange={value => this.handleChange({ height: { ...values.height, inches: value.value } })}
+									onChange={value => onChange({ ...values, height: { ...values.height, inches: value.value }  })}
 									style={{ width: "3rem" }}
 									type="number"
 									min="1"

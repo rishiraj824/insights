@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Modal from '../components/modal';
 import Rating from './Rating';
 import Select from 'react-select';
 import { upload, onFormChange } from '../store/actions/share';
@@ -35,10 +34,9 @@ function getBase64(file) {
  }
 
 const Sharer  = (props) =>  {
-    const { values, onFormChange, open, upload } = props;
+    const { values, onFormChange, upload } = props;
     
     return (
-        <Modal className="modal" show={open}>
             <div className="flex wrap row center">
                 <div className="box">
                     Upload
@@ -72,7 +70,6 @@ const Sharer  = (props) =>  {
                 <div>
                 </div>
             </div>
-        </Modal>
     );
 }
 
@@ -85,8 +82,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        values: state.share.values,
-        open: state.share.open
+        values: state.share.values
     }
 }
 

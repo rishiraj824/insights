@@ -1,6 +1,5 @@
 
 const initState = {
-    open: false,
     values: {
         imagesURL: [],
         brand: '',
@@ -39,11 +38,6 @@ const share = (state = initState, action) => {
                         action.payload
                     ]
                 }
-            }
-        case 'OPEN_SHARER':
-            return {
-                ...state,
-                open: true
             }
         default:
             return state;
