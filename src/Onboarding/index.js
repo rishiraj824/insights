@@ -225,10 +225,8 @@ class Onboarding extends Component {
 								<h3>
 									How old are you? <br /> ( 🤫 We won't tell anyone, Promise. )
 								</h3>
-								<div className={"flex"}>
-									<input onChange={this.onChange} style={{ width: "3rem" }} />
-									<p>&nbsp;years</p>{" "}
-								</div>
+								<input onChange={this.onChange} style={{ width: "3rem" }} type="number" min="1" />
+								<p>&nbsp;years</p>{" "}
 							</div>
 							<div className="question">
 								<h3>How tall are you?</h3>
@@ -236,9 +234,16 @@ class Onboarding extends Component {
 									value={values.height.feet}
 									onChange={value => this.handleChange({ height: { ...values.height, feet: value.value } })}
 									style={{ width: "3rem" }}
+									type="number"
+									min="1"
 								/>
 								&nbsp;ft.&nbsp;&nbsp;
-								<input onChange={value => this.handleChange({ height: { ...values.height, inches: value.value } })} style={{ width: "3rem" }} />
+								<input
+									onChange={value => this.handleChange({ height: { ...values.height, inches: value.value } })}
+									style={{ width: "3rem" }}
+									type="number"
+									min="1"
+								/>
 								&nbsp;inches.
 							</div>
 							<div className="question">
@@ -247,7 +252,7 @@ class Onboarding extends Component {
 							</div>
 							<div className="question">
 								<h3>What is your weight?</h3>
-								<input onChange={this.onChange} style={{ width: "3rem" }} />
+								<input onChange={this.onChange} style={{ width: "3rem" }} type="number" min="1" />
 								lbs.
 							</div>
 						</div>

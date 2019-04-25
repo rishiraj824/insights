@@ -80,7 +80,7 @@ input[type="range"] {
   cursor: pointer;
   border: none;
   min-width: 14rem;
-  width: 100%;
+  width: 90%;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
