@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sanity/client": "^0.140.11",
     "firebase": "^5.10.0",
     "firebaseui": "^3.5.2",
     "react": "^16.8.6",
