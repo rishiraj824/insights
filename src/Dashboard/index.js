@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from './Navbar';
 import Onboarding from "../Onboarding";
 import Search from '../Search/index';
 

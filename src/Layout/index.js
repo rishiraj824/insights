@@ -3,6 +3,7 @@ import Dashboard from '../Dashboard/index';
 import Navbar from './Navbar';
 import { connect } from "react-redux";
 import { fetchUser } from "../store/actions/authActions";
+import Sharer from "../Sharer";
 
 class Page extends Component {
 
@@ -17,6 +18,7 @@ class Page extends Component {
 				<div>           
 					<Navbar />
 					{auth.uid&&<Dashboard openOnboarding={openOnboarding}/>}
+					<Sharer />
 				</div>
 		);
 	}

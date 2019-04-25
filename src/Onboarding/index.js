@@ -5,11 +5,7 @@ import Modal from "../components/modal";
 import Select from "react-select";
 import One from "./one";
 import Two from "./two";
-import Three from "./three";
 
-const feet = [{ value: "4", label: "4" }, { value: "5", label: "5" }, { value: "6", label: "6" }];
-
-const inches = [{ value: "1", label: "1" }, { value: "2", label: "2" }, { value: "3", label: "3" }];
 const BRA_SIZES = [
 	"32A",
 	"30B",
