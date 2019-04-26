@@ -5,11 +5,7 @@ import Modal from "../components/modal";
 import Select from "react-select";
 import One from "./one";
 import Two from "./two";
-import Three from "./three";
 
-const feet = [{ value: "4", label: "4" }, { value: "5", label: "5" }, { value: "6", label: "6" }];
-
-const inches = [{ value: "1", label: "1" }, { value: "2", label: "2" }, { value: "3", label: "3" }];
 const BRA_SIZES = [
 	"32A",
 	"30B",
@@ -180,7 +176,7 @@ class Onboarding extends Component {
 
 	render() {
 		const { isShowing, step } = this.state;
-		const { values, auth } = this.props;
+		const { values, auth, onChange } = this.props;
 		return (
 			<Modal className="modal" show={isShowing}>
 				<div className="flex row wrap main">
@@ -231,15 +227,14 @@ class Onboarding extends Component {
 							<div className="question">
 								<h3>How tall are you?</h3>
 								<input
-									value={values.height.feet}
-									onChange={value => this.handleChange({ height: { ...values.height, feet: value.value } })}
+									onChange={value => onChange({ ...values, height: { ...values.height, feet: value.value }  })}
 									style={{ width: "3rem" }}
 									type="number"
 									min="1"
 								/>
 								&nbsp;ft.&nbsp;&nbsp;
 								<input
-									onChange={value => this.handleChange({ height: { ...values.height, inches: value.value } })}
+									onChange={value => onChange({ ...values, height: { ...values.height, inches: value.value }  })}
 									style={{ width: "3rem" }}
 									type="number"
 									min="1"

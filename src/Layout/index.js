@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Dashboard from "../Dashboard/index";
-import Navbar from "./Navbar";
 import Landing from "../Landing/index";
 import { connect } from "react-redux";
 import { fetchUser } from "../store/actions/authActions";
+import Sharer from "../Sharer";
 
 class Page extends Component {
 	componentDidMount() {
@@ -16,7 +16,7 @@ class Page extends Component {
 		return (
 			<div>
 				{/* <Navbar /> */}
-				{auth.uid ? <Dashboard openOnboarding={openOnboarding} /> : <Landing />}
+				{auth.uid ? <Dashboard openOnboarding={openOnboarding} /> : <Landing />}				
 			</div>
 		);
 	}

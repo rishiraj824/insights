@@ -6,7 +6,7 @@ import SignedInLinks from "./SignedInLinks";
 
 
 const Navbar = props => {
-	const { auth, profile } = props;
+	const { auth } = props;
 	
 	const links = auth.uid ? <SignedInLinks/> : <SignedOutLinks />;
 	return (

@@ -185,3 +185,23 @@ input[type="range"]:focus::-ms-track {
 input[type="range"]:focus::-moz-range-track {
 	background: #ccc;
 }
+
+.box {
+    width: 300px;
+    height: 300px;
+	padding: 10px;
+	background: #ddd;
+	line-height: 300px;
+		position: relative;
+		cursor: pointer;
+}
+.file {
+    width: 60%;
+    height: 100%;
+    line-height: 300px;
+    padding: 0 20%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+		position: absolute;
+}

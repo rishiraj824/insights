@@ -7,12 +7,13 @@ const initState = {
       },
       weight: '120',
       braSize:'35 C',
-      shoulder: '2',
-      waist: '2',
-      hip: '2',
       bellyShape:'2',
       buttShape: '2',
-      bodyShape: 'M',
+      bodyShape: {
+        shoulder: '2',
+        waist: '2',
+        hip: '2'
+      },
       age: '20'
     },
     open: false
