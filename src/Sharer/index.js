@@ -87,7 +87,9 @@ const Sharer  = (props) =>  {
                     <Select options={size} onChange={(value)=>onFormChange({meta: {...values.meta,size: value.value}})} value={{label: values.meta.size, value: values.meta.size}}></Select>          
                     <button onClick={()=>addDress({
                         ...values,
-                        userId: auth.uid
+                        userId: auth.uid,
+                        color: values.meta.color,
+                        size:values.meta.size
                     })}>Finish</button>
                 </div>
                 <div>
