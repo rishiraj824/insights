@@ -212,3 +212,24 @@ exports.getDress = functions.https.onRequest((request, response) => {
 			});
 	});
 });
+
+exports.upvoteDress = functions.https.onRequest((request, response) => {
+	cors(request, response, () => {
+		const reqDressId = request.query.dressId;
+		console.log(JSON.stringify(request.params));
+
+		return admin
+			.database()
+			.ref(`dress/${reqDressId}`)
+			.once("value")
+			.then(snapshot => {
+				const dress = snapshot.val();
+
+				admin
+					.database()
+					.ref(`dress/${reqDressId}`)
+					.set(Object.assign(dress, { likeability: dress.likeability + 1 }));
+				response.send(snapshot.val());
+			});
+	});
+});

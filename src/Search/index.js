@@ -6,7 +6,18 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import "./style.css";
 
-const brands = [{ label: "All", value: "all" }, { label: "H&M", value: "H&M" }, { label: "GUCCI", value: "GUCCI" }, { label: "PRADA", value: "PRADA" }];
+const brandName = [
+    "All",
+    "Michael Kors",
+    "Calvin Klein",
+    "free people",
+    "Reformation" ,
+    "Anthropology" ,
+    "& Other Stories",
+    "Eileen Fisher",
+    "Aritzia"
+]
+const brands =  brandName.map(b => ({label: b, value: b})) ;
 
 const colors = [
 	{ label: "All", value: "all" },
@@ -24,7 +35,7 @@ const colors = [
 ];
 
 const filterFunc = (dress, filterBy, filterValue) => {
-	if (filterValue === "all") return true;
+	if (filterValue === "All") return true;
 	return dress[filterBy] === filterValue;
 };
 
@@ -54,9 +65,9 @@ class SearchList extends Component {
 
 		return (
 			<div>
-				<div class="search-container ">
+				<div className="search-container ">
 					<div className="filters">
-						<h3 class="pink"> Filters </h3>
+						<h3 className="pink"> Filters </h3>
 						<Select
 							options={brands}
 							placeholder="By Brand"
@@ -73,17 +84,25 @@ class SearchList extends Component {
 							}}
 						/>
 					</div>
-					<div class="dress-carousel ">
+					<div className="dress-carousel ">
 						{allDresses &&
 							allDresses.map(dress => (
-								<Link to={`/dress/${dress.id}`}>
+								<Link to={`/dress/${dress.id}`} key={dress.id}>
 									<DressCard
+										key={dress.id}
 										name={dress.name}
 										likeability={dress.likeability}
 										imgUrl={dress.imagesURL && dress.imagesURL.length > 0 ? dress.imagesURL[0] : ""}
 									/>
 								</Link>
 							))}
+
+						{allDresses && allDresses.length === 0 && (
+							<div>
+								<br />
+								<h3>No matching dress found </h3>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
