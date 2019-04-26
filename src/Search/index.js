@@ -3,12 +3,35 @@ import Navbar from "../Dashboard/Navbar";
 import DressCard from "../DressCard";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 import "./style.css";
+
+const brands = [{ label: "All", value: "all" }, { label: "H&M", value: "H&M" }, { label: "GUCCI", value: "GUCCI" }, { label: "PRADA", value: "PRADA" }];
+
+const colors = [
+	{ label: "All", value: "all" },
+	{ label: "Red", value: "red" },
+	{ label: "Green", value: "green" },
+	{ label: "Blue", value: "blue" },
+	{ label: "Orange", value: "orange" },
+	{ label: "Violet", value: "violet" },
+	{ label: "White", value: "white" },
+	{ label: "Black", value: "black" },
+	{ label: "Yellow", value: "yellow" },
+	{ label: "Pink", value: "pink" },
+	{ label: "Brown", value: "brown" },
+	{ label: "Multi", value: "multi" }
+];
+
+const filterFunc = (dress, filterBy, filterValue) => {
+	if (filterValue === "all") return true;
+	return dress[filterBy] === filterValue;
+};
 
 class SearchList extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { filters: {} };
 	}
 	componentDidMount() {
 		const { auth } = this.props;
@@ -23,12 +46,33 @@ class SearchList extends Component {
 	}
 
 	render() {
-		const { allDresses } = this.state;
+		let { allDresses, filters } = this.state;
+
+		Object.keys(filters).map(filterKey => {
+			allDresses = allDresses.filter(dress => filterFunc(dress, filterKey, filters[filterKey]));
+		});
+
 		return (
 			<div>
-				<Navbar />
-
-				<div class="landing-container ">
+				<div class="search-container ">
+					<div className="filters">
+						<h3 class="pink"> Filters </h3>
+						<Select
+							options={brands}
+							placeholder="By Brand"
+							onChange={value => {
+								this.setState({ filters: { ...filters, brand: value.value } });
+							}}
+						/>
+						<br />
+						<Select
+							options={colors}
+							placeholder="By Color"
+							onChange={value => {
+								this.setState({ filters: { ...filters, color: value.value } });
+							}}
+						/>
+					</div>
 					<div class="dress-carousel ">
 						{allDresses &&
 							allDresses.map(dress => (

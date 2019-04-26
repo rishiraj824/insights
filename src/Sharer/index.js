@@ -18,10 +18,19 @@ const brands = [
 ]
 
 const colors = [
-    {label:'red', value:'red'},
-    {label:'green', value:'green'},
-    {label:'blue', value:'blue'},
-]
+	{ label: "Red", value: "red" },
+	{ label: "Green", value: "green" },
+	{ label: "Blue", value: "blue" },
+	{ label: "Orange", value: "orange" },
+	{ label: "Violet", value: "violet" },
+	{ label: "White", value: "white" },
+	{ label: "Black", value: "black" },
+	{ label: "Yellow", value: "yellow" },
+	{ label: "Pink", value: "pink" },
+	{ label: "Brown", value: "brown" },
+	{ label: "Multi", value: "multi" }
+];
+
 const size = [
     {label:'XL', value:'XL'},
     {label:'L', value:'L'},
