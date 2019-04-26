@@ -1,6 +1,7 @@
 import authReducer from "./authReducer";
 import onboarding from './onboarding';
 import share from './share';
+import dress from './dress';
 // import projectReducer from './projectReducer'
 import { combineReducers } from "redux";
 import { firestoreReducer } from "redux-firestore";
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
 	auth: authReducer,
 	// project: projectReducer,
 	firestore: firestoreReducer,
+	dress,
 	share,
 	firebase: firebaseReducer,
 	onboarding
