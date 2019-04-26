@@ -15,6 +15,9 @@
 .center {
   align-items: center;
 }
+.uploader {
+  margin-top: 6rem;
+}
 .container {
 	width: 100%;
 	max-width: 1080px;

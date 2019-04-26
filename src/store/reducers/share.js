@@ -4,11 +4,11 @@ const initState = {
         imagesURL: [],
         brand: '',
         name: "",
-        item_code: '',
+        itemCode: '',
         type: "dress",
         subType: "",
         userId: "",
-        rating: 5,
+        rating: 4,
         review: '',
         meta: {
             color: '',
