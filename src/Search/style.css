@@ -1,8 +1,8 @@
-.landing-container {
-	margin-top: 6rem;
+.search-container {
+	margin-top: calc(4rem + 16px);
 	display: flex;
-	flex-direction: column;
-	padding: 2rem;
+	flex-direction: row;
+	min-height: 100vh;
 }
 
 .dress-carousel {
@@ -11,8 +11,22 @@
 	flex-wrap: wrap;
 }
 
+.filters {
+	width: 14rem;
+	padding: 1rem;
+	background-color: #fdefee;
+}
+
 @media only screen and (max-width: 600px) {
 	.dress-carousel {
 		justify-content: center;
+	}
+
+	.search-container {
+		flex-direction: column;
+	}
+	.filters {
+		width: calc(100% - 1rem);
+		padding: 0.5rem;
 	}
 }

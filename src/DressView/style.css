@@ -1,6 +1,25 @@
 .dress {
-    margin-top: 5rem;
+	margin-top: 5rem;
+	justify-content: center;
 }
-.review{
-    margin: auto;
+.review {
+	/* margin: auto; */
+}
+.gallery {
+	width: 15rem;
+	padding: 3rem;
+}
+
+.heart-container{
+    position: relative!important;
+}
+
+@media only screen and (max-width: 600px) {
+	.gallery {
+		width: 100%;
+	}
+
+	.review {
+		padding: 1rem;
+	}
 }
