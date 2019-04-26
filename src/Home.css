@@ -207,3 +207,14 @@ input[type="range"]:focus::-moz-range-track {
     top: 0;
 		position: absolute;
 }
+.questions {
+	width: 50%;
+}
+.imageStyle {
+	height: 100px;
+	width: auto;
+	margin: 5px;
+}
+.imagesUploaded{
+	margin-top: 40px;
+}

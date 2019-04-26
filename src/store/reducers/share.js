@@ -2,7 +2,7 @@
 const initState = {
     values: {
         imagesURL: [],
-        brand: '',
+        brand: 'H&M',
         name: "",
         itemCode: '',
         type: "dress",
@@ -11,8 +11,8 @@ const initState = {
         rating: 4,
         review: '',
         meta: {
-            color: '',
-            size: ''
+            color: 'red',
+            size: 'M'
         },
         likeability: 1
     }

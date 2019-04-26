@@ -4,10 +4,14 @@ import Select from 'react-select';
 import { upload, onFormChange, addDress } from '../store/actions/share';
 import { connect } from 'react-redux';
 import './rating.css';
-import '@uppy/core/dist/style.css'
-import '@uppy/drag-drop/dist/style.css'
+import '@uppy/core/dist/style.css';
+import '@uppy/drag-drop/dist/style.css';
+import '@uppy/core/dist/style.css';
+import '@uppy/progress-bar/dist/style.css';
+
 
 const Uppy = require('@uppy/core');
+const ProgressBar = require('@uppy/progress-bar');
 const Tus = require('@uppy/tus');
 const { DragDrop } = require('@uppy/react');
 
@@ -40,6 +44,11 @@ const Sharer  = (props) =>  {
         autoProceed: true
     });
     uppy.use(Tus, { endpoint: 'https://master.tus.io/files/' })
+    uppy.use(ProgressBar, {
+        target: 'body',
+        fixed: false,
+        hideAfterFinish: true
+    })
     
     uppy.on('complete', (result) => {
         const url = result.successful[0].uploadURL
@@ -61,36 +70,66 @@ const Sharer  = (props) =>  {
                         }
                         }}
                     />
+                    <div className="imagesUploaded flex row wrap">{values.imagesURL.map((src, index)=>{
+                        return <img key={index} src={src} className="imageStyle" />
+                    })}</div>
                 </div>
-                <div className="flex column">
+                <div className="flex column questions">
+                <div className="question">
+                    <h3>Dress Name</h3>
                     <input
                         value={values.name}
                         onChange={e => onFormChange({ name: e.target.value })}
-                        style={{ width: "3rem" }}
+                        style={{ width: "15rem" }}
                         placeholder="Name"
                      />
+                </div>
+                <div className="question">
+                    <h3>Please Rate the Dress</h3>
                     <Rating rating={values.rating} onChange={(rating)=>onFormChange({rating})} />
-                    <label>Write a review</label>
-                    <textarea rows={4} onChange={(e)=>onFormChange({ review: e.target.value})} value={values.review} />
+                </div>
+                <div className="question">
+                    <h3>Write a review</h3>
+                    <textarea placeholder="A good description about the quality, style and fitting.." style={{ width:"15rem" }} rows={4} onChange={(e)=>onFormChange({ review: e.target.value})} value={values.review} />
+                </div>
+                <div className="question">
+                    <h3>Select Brand Name</h3>
                     <Select options={brands} onChange={(value)=>onFormChange({brand: value.value})} value={{label: values.brand, value: values.brand}}></Select>                        
+                </div>
+                <div className="row flex center">
+                <div className="question margin-right-10">
+                <h3>Item Code</h3>
                     <input
                         value={values.itemCode}
                         onChange={e => onFormChange({ itemCode: e.target.value })}
-                        style={{ width: "3rem" }}
+                        style={{ width: "8rem" }}
+                        placeholder="1234"
                     />
-                    <Select options={colors} onChange={(value)=>onFormChange({
+                </div>
+                <div className="question margin-right-10">
+                    <h3>Color</h3>
+                    <Select autoSize={false} style={{width: '200px'}} options={colors} onChange={(value)=>onFormChange({
                         meta: {
                             ...values.meta, 
                             color: value.value
                         }})} value={{label: values.meta.color, value: values.meta.color}}>
-                    </Select>          
-                    <Select options={size} onChange={(value)=>onFormChange({meta: {...values.meta,size: value.value}})} value={{label: values.meta.size, value: values.meta.size}}></Select>          
-                    <button onClick={()=>addDress({
+                    </Select> 
+                </div>        
+                <div className="question margin-right-10">
+                    <h3>Size</h3>         
+                    <Select autoSize={false} style={{width: '200px'}} options={size} onChange={(value)=>onFormChange({meta: {...values.meta,size: value.value}})} value={{label: values.meta.size, value: values.meta.size}}></Select>          
+                </div>
+                </div>
+                <br/>
+                    <button onClick={()=>{
+                        addDress({
                         ...values,
                         userId: auth.uid,
                         color: values.meta.color,
                         size:values.meta.size
-                    })}>Finish</button>
+                    })
+                    window.location.href = '/';
+                }}>Submit</button>
                 </div>
                 <div>
                 </div>

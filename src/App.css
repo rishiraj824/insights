@@ -15,8 +15,14 @@
 .center {
   align-items: center;
 }
+
+.margin-right-10{
+  margin-right: 20px;    
+  min-width: 100px;
+}
 .uploader {
   margin-top: 6rem;
+  justify-content: space-around;
 }
 .container {
 	width: 100%;
