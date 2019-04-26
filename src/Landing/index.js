@@ -20,11 +20,11 @@ const landing = ({ signIn }) => {
 			<div className="link auth" onClick={signIn} style={{ margin: "0", zIndex: "100" }}>
 				Login With Google
 			</div>
-            <br />
+			<br />
 			<div className="dress-carousel">
-				<DressCard name="Floral Top" likeability={10} rating={4} imgUrl={"sam1.png"} />
-				<DressCard name="Sleveless Top" likeability={4} rating={5} imgUrl={"sam2.png"} />
-				<DressCard name="Blank Tank" likeability={150} rating={10} imgUrl={"sam3.png"} />
+				<DressCard onClick={signIn} name="Floral Top" likeability={10} rating={4} imgUrl={"sam1.png"} />
+				<DressCard onClick={signIn} name="Sleveless Top" likeability={4} rating={5} imgUrl={"sam2.png"} />
+				<DressCard onClick={signIn} name="Blank Tank" likeability={150} rating={10} imgUrl={"sam3.png"} />
 			</div>
 		</div>
 	);
