@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-export default ({ likeability, stars, name, desc, imgUrl }) => (
-	<div className="dress-card">
+export default ({ likeability, stars, name, desc, imgUrl, onClick }) => (
+	<div className="dress-card" onClick={onClick}>
 		<div className="likeability">
 			<svg className="heart" viewBox="0 0 32 29.6">
 				<path
