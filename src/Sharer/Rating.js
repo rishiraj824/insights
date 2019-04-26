@@ -10,11 +10,13 @@ export default class Rating extends Component {
     }
 
     rate = (rating) => {
+      if(!this.props.disabled) {
         this.setState({
           rating: rating,
           temp_rating: rating
         });
         this.props.onChange(rating);
+      }
     }
     star_over = (rating) => {        
         this.setState({

@@ -11,6 +11,7 @@
     "firebaseui": "^3.5.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-image-gallery": "^0.8.16",
     "react-redux": "^7.0.2",
     "react-redux-firebase": "^2.2.6",
     "react-router": "^5.0.0",
