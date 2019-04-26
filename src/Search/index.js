@@ -1,42 +1,24 @@
 import React, { Component } from "react";
 import Navbar from "../Dashboard/Navbar";
 import DressCard from "../DressCard";
+import { connect } from "react-redux";
+import "./style.css";
 
-class Search extends Component {
+class SearchList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
 	}
 	componentDidMount() {
-		fetch(`https://us-central1-prime-fit.cloudfunctions.net/getAllDresses`)
-			.then(resp => resp.json())
-			.then(response => {
-				console.log(response);
-				const dresses = Object.values(response).filter(dress => {
-					fetch(`https://us-central1-prime-fit.cloudfunctions.net/getUser?userId=${dress.userId}`)
-						.then(resp => {
-							return resp.text();
-						})
-						.then(response => {
-							console.log(response);
-							if (typeof response === "string") {
-								try {
-									response = JSON.parse(response);
-								} catch (err) {
-									console.log("No response while fetching user data...");
-									return false;
-								}
-							}
-							if (!response === undefined && response["name"]) {
-								// do the logic
-
-								return true;
-							}
-						});
+		const { auth } = this.props;
+		auth &&
+			auth.uid &&
+			fetch(`https://us-central1-prime-fit.cloudfunctions.net/getAllDresses?userId=${auth.uid}`)
+				.then(resp => resp.json())
+				.then(response => {
+					console.log(response);
+					this.setState({ allDresses: response ? response : [] });
 				});
-
-				this.setState({ allDresses: dresses });
-			});
 	}
 
 	render() {
@@ -44,17 +26,37 @@ class Search extends Component {
 		return (
 			<div>
 				<Navbar />
-				{allDresses &&
-					allDresses.map(dress => (
-						<DressCard
-							name={dress.name}
-							likeability={dress.likeability}
-							imgUrl={dress.imagesURL && dress.imagesUR.length > 0 ? dress.imagesURL[0] : ""}
-						/>
-					))}
+
+				<div class="landing-container ">
+					<div class="dress-carousel ">
+						{allDresses &&
+							allDresses.map(dress => (
+								<DressCard
+									name={dress.name}
+									likeability={dress.likeability}
+									imgUrl={dress.imagesURL && dress.imagesURL.length > 0 ? dress.imagesURL[0] : ""}
+								/>
+							))}
+					</div>
+				</div>
 			</div>
 		);
 	}
 }
 
-export default Search;
+const mapStateToProps = state => {
+	return {
+		auth: state.firebase.auth,
+		openOnboarding: state.onboarding.open
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		// fetchUser: id => dispatch(fetchUser(id))
+	};
+};
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(SearchList);

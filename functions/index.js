@@ -50,37 +50,47 @@ const isSimilar = (user1, user2) => {
 	console.log(user1);
 	console.log(user2);
 
-	if (Math.abs(Number(user2.height.feet) - Number(user1.height.feet) > 2)) {
+	if (Math.abs(Number(user2.height.feet) - Number(user1.height.feet)) > 2) {
+		console.log("Users had diff height");
 		return false;
 	}
 
-	if (Math.abs(Number(user2.weight) - Number(user1.weight > 5))) {
+	if (Math.abs(Number(user2.weight) - Number(user1.weight)) > 5) {
+		console.log("Users had diff weight");
 		return false;
 	}
 
-	if (Number(user2.braSize) !== Number(user1.braSize)) {
+	if (user2.braSize !== user1.braSize) {
+		console.log("Users had diff braSize");
 		return false;
 	}
 
-	if (Math.abs(Number(user2.bodyShape.shoulder) - Number(user1.bodyShape.shoulder > 1))) {
+	if (Math.abs(Number(user2.bodyShape.shoulder) - Number(user1.bodyShape.shoulder)) > 1) {
+		console.log("Users had diff shoulder");
 		return false;
 	}
 
-	if (Math.abs(Number(user2.bodyShape.belly) - Number(user1.bodyShape.belly > 1))) {
+	if (Math.abs(Number(user2.bodyShape.belly) - Number(user1.bodyShape.belly)) > 1) {
+		console.log("Users had diff belly");
 		return false;
 	}
 
-	if (Math.abs(Number(user2.bodyShape.waist) - Number(user1.waist > 1))) {
+	if (Math.abs(Number(user2.bodyShape.waist) - Number(user1.waist)) > 1) {
+		console.log("Users had diff waist");
 		return false;
 	}
 
-	if (Math.abs(Number(user2.bellyShape) - Number(user1.bellyShape > 1))) {
+	if (Math.abs(Number(user2.bellyShape) - Number(user1.bellyShape)) > 1) {
+		console.log("Users had diff bellyShape");
 		return false;
 	}
 
-	if (Math.abs(Number(user2.buttShape) - Number(user1.buttShape > 1))) {
+	if (Math.abs(Number(user2.buttShape) - Number(user1.buttShape)) > 1) {
+		console.log("Users had diff buttShape");
 		return false;
 	}
+
+	console.log("Users matched");
 
 	return true;
 };
@@ -101,7 +111,8 @@ exports.getAllDresses = functions.https.onRequest((request, response) => {
 					.ref("dress")
 					.once("value")
 					.then(snapshot => {
-						const allDresses = Object.keys(snapshot.val()).map(key => snapshot.val()[key]);
+						const dr = snapshot.val();
+						const allDresses = Object.keys(dr).map(key => Object.assign(dr[key], { id: key }));
 						const promises = allDresses
 							.map(dress => dress.userId)
 							// .filter(onlyUnique)
@@ -178,6 +189,22 @@ exports.getUser = functions.https.onRequest((request, response) => {
 		return admin
 			.database()
 			.ref(`user/${reqUserId}`)
+			.once("value")
+			.then(snapshot => {
+				console.log(snapshot);
+				response.send(snapshot.val());
+			});
+	});
+});
+
+exports.getDress = functions.https.onRequest((request, response) => {
+	cors(request, response, () => {
+		const reqDressId = request.query.dressId;
+		console.log(JSON.stringify(request.params));
+
+		return admin
+			.database()
+			.ref(`dress/${reqDressId}`)
 			.once("value")
 			.then(snapshot => {
 				console.log(snapshot);
