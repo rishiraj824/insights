@@ -105,7 +105,7 @@ const Sharer  = (props) =>  {
                     <h3>Select Brand Name</h3>
                     <Select options={brands} onChange={(value)=>onFormChange({brand: value.value})} value={{label: values.brand, value: values.brand}}></Select>                        
                 </div>
-                <div className="row flex center">
+                <div className="row flex center wrap">
                 <div className="question margin-right-10">
                 <h3>Item Code</h3>
                     <input
