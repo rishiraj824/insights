@@ -105,11 +105,21 @@
 .pink {
 	color: #ff5a6e;
 }
+.path{
+  stroke: #DDDCD7;
+  stroke-width: 4px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
 .logo {
-	color: #ff5a6e;
-	position: relative;
-	text-align: center;
-	margin-right: 1rem;
+  color: #ff5a6e;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #121354;
+  height: 4rem;
+  margin: 0;
+  line-height: 4rem;
 }
 .google-auth {
 	display: flex;

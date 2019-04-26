@@ -55,7 +55,7 @@ const Sharer  = (props) =>  {
     uppy.use(Tus, { endpoint: 'https://master.tus.io/files/' })
     uppy.use(ProgressBar, {
         target: 'body',
-        fixed: false,
+        fixed: true,
         hideAfterFinish: true
     })
     
@@ -130,7 +130,9 @@ const Sharer  = (props) =>  {
                 </div>
                 </div>
                 <br/>
-                    <button onClick={()=>{
+                    <button
+                    disabled={values.imagesURL.length===0}
+                    onClick={()=>{
                         addDress({
                         ...values,
                         userId: auth.uid,

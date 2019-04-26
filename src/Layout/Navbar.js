@@ -10,13 +10,7 @@ const Navbar = props => {
 	
 	const links = auth.uid ? <SignedInLinks/> : <SignedOutLinks />;
 	return (
-		<nav>
-			<h2 className="logo">
-				<Link to="/" className="brand-logo">
-					PrimeFit
-				</Link>
-			</h2>    
-			<p className="caption">Your way to a perfect fit.</p> 
+		<nav> 
 			<div className="links">
 				{links}
 			</div>
