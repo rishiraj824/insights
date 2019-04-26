@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../Dashboard/Navbar";
 import DressCard from "../DressCard";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 class SearchList extends Component {
@@ -31,11 +32,13 @@ class SearchList extends Component {
 					<div class="dress-carousel ">
 						{allDresses &&
 							allDresses.map(dress => (
-								<DressCard
-									name={dress.name}
-									likeability={dress.likeability}
-									imgUrl={dress.imagesURL && dress.imagesURL.length > 0 ? dress.imagesURL[0] : ""}
-								/>
+								<Link to={`/dress/${dress.id}`}>
+									<DressCard
+										name={dress.name}
+										likeability={dress.likeability}
+										imgUrl={dress.imagesURL && dress.imagesURL.length > 0 ? dress.imagesURL[0] : ""}
+									/>
+								</Link>
 							))}
 					</div>
 				</div>
