@@ -11,7 +11,9 @@ nav {
 	flex-direction: row;
 	padding: 8px 16px;
 }
-
+.links ul li {
+	cursor: pointer;
+}
 .links {
 	flex-direction: column;
   width: auto;
