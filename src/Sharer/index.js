@@ -65,7 +65,7 @@ const Sharer  = (props) =>  {
                 <div className="flex column">
                     <input
                         value={values.name}
-                        onChange={value => onFormChange({ name: value.value })}
+                        onChange={e => onFormChange({ name: e.target.value })}
                         style={{ width: "3rem" }}
                         placeholder="Name"
                      />
@@ -75,7 +75,7 @@ const Sharer  = (props) =>  {
                     <Select options={brands} onChange={(value)=>onFormChange({brand: value.value})} value={{label: values.brand, value: values.brand}}></Select>                        
                     <input
                         value={values.itemCode}
-                        onChange={value => onFormChange({ itemCode: value.value })}
+                        onChange={e => onFormChange({ itemCode: e.target.value })}
                         style={{ width: "3rem" }}
                     />
                     <Select options={colors} onChange={(value)=>onFormChange({
