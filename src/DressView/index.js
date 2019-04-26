@@ -7,13 +7,30 @@ import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 class DressView extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { upvoted: false };
+	}
 	componentDidMount() {
 		const { match, getDress } = this.props;
 		const id = match.params.id;
 		getDress(id);
 	}
+
+	upvoteTheDress = () => {
+		const { match } = this.props;
+		const { upvoted } = this.state;
+		const id = match.params.id;
+		if (!upvoted) {
+			fetch(`https://us-central1-prime-fit.cloudfunctions.net/upvoteDress?dressId=${id}`).then(() => {
+				this.setState({ upvoted: true });
+			});
+		}
+	};
+
 	render() {
 		const { dress } = this.props;
+		const { upvoted } = this.state;
 		const { review, name, rating, imagesURL = [], brand, itemCode, size, likeability } = dress;
 		const photos = imagesURL.map(src => ({
 			original: src,
@@ -26,7 +43,7 @@ class DressView extends Component {
 				</div>
 
 				<div className="review">
-					<div className="heart-container">
+					<div className="heart-container" onClick={this.upvoteTheDress}>
 						<div style={{ position: "absolute" }}>
 							<svg className="heart" viewBox="0 0 32 29.6">
 								<path
@@ -34,11 +51,13 @@ class DressView extends Component {
 	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"
 								/>
 							</svg>
-							<div className="likeability-value">{likeability}</div>
+							<div className="likeability-value">{likeability + (upvoted ? 1 : 0)} </div>
 						</div>
 					</div>
 					<br />
+					<br />
                     <br />
+					Click To Upvote
 					<h2 className="pink">{name}</h2>
 					<Rating disabled={true} rating={rating} />
 					<p>
