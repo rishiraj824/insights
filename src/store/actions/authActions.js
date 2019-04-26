@@ -63,6 +63,7 @@ export const signOut = () => {
 				dispatch( {
 					type: "SIGNOUT_SUCCESS"
 				} );
+				window.location.reload();
 			} );
 	};
 };

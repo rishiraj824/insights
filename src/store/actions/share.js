@@ -33,5 +33,6 @@ export const addDress = (body) => dispatch => {
           dispatch( {
               type: 'ADDED_DRESS'
           })
+          window.location.href = '/';
   } )
 }

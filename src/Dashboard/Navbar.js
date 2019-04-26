@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = (props) => {
     return <div className="flex row">
         <div className="home-link">
-            <NavLink to="/search">Dresses</NavLink>
+            <NavLink to="/">Explore</NavLink>
         </div>
         <div className="home-link">
             <NavLink to="/new">Share Photo</NavLink>

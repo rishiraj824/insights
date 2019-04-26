@@ -18,15 +18,17 @@ nav {
 }
 .links ul li {
 	cursor: pointer;
-	margin: 5px 0;
+  margin: 3rem 0;
+  font-size: 16px;
 	font-size: 14px;
 }
 .link ul {
 	padding-left: 0;
 }
 .links {
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
+
 .link {
   cursor: pointer;
 	font-size: 16px;

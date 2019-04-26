@@ -9,7 +9,7 @@ const SignedInLinks = props => {
 		<div>
 			<ul>
 				<li>
-					<NavLink to="/search">Dresses</NavLink>
+					<NavLink to="/">Explore</NavLink>
 				</li>
 				<li>
 					<NavLink to="/new" >Share Photo</NavLink>

@@ -23,6 +23,7 @@
 .uploader {
   margin-top: 6rem;
   justify-content: space-around;
+  z-index: 1000;
 }
 .container {
 	width: 100%;

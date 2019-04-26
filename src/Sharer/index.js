@@ -147,7 +147,6 @@ const Sharer  = (props) =>  {
                         color: values.meta.color,
                         size:values.meta.size
                     })
-                    window.location.href = '/';
                 }}>Submit</button>
                 </div>
                 <div>

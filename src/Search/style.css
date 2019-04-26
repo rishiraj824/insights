@@ -1,5 +1,5 @@
 .search-container {
-	margin-top: calc(4rem + 16px);
+	/* margin-top: 4rem; */
 	display: flex;
 	flex-direction: row;
 	min-height: 100vh;
