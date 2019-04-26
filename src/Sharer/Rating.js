@@ -28,12 +28,19 @@ export default class Rating extends Component {
 
     render() {
         const stars = [];
+        const { disabled } = this.props;
         
         for(let i = 0; i < 5; i++) {
           const klass = 'star-rating__star';
-          
-          if (this.state.rating >= i && this.state.rating != null) {
-            klass += ' is-selected';
+          if (this.state.rating === null) {
+            if (this.props.rating >= i && this.props.rating != null) {
+              klass += ' is-selected';
+            }
+          }
+          else {
+            if (this.state.rating >= i && this.state.rating != null) {
+              klass += ' is-selected';
+            }
           }
     
           stars.push(
@@ -41,7 +48,7 @@ export default class Rating extends Component {
               key={i}
               className={klass}
               onClick={this.rate.bind(this, i)}
-              onMouseOver={this.star_over.bind(this, i)}
+              onMouseOver={disabled?()=>{}:this.star_over.bind(this, i)}
               onMouseOut={this.star_out}>
               ★
             </label>
