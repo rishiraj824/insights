@@ -6,7 +6,18 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import "./style.css";
 
-const brands = [{ label: "All", value: "all" }, { label: "H&M", value: "H&M" }, { label: "GUCCI", value: "GUCCI" }, { label: "PRADA", value: "PRADA" }];
+const brandName = [
+    "All",
+    "Michael Kors",
+    "Calvin Klein",
+    "free people",
+    "Reformation" ,
+    "Anthropology" ,
+    "& Other Stories",
+    "Eileen Fisher",
+    "Aritzia"
+]
+const brands =  brandName.map(b => ({label: b, value: b})) ;
 
 const colors = [
 	{ label: "All", value: "all" },
@@ -24,7 +35,7 @@ const colors = [
 ];
 
 const filterFunc = (dress, filterBy, filterValue) => {
-	if (filterValue === "all") return true;
+	if (filterValue === "All") return true;
 	return dress[filterBy] === filterValue;
 };
 

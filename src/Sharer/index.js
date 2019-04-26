@@ -15,11 +15,19 @@ const ProgressBar = require('@uppy/progress-bar');
 const Tus = require('@uppy/tus');
 const { DragDrop } = require('@uppy/react');
 
-const brands = [
-    {label:'H&M', value:'H&M'},
-    {label:'GUCCI', value:'GUCCI'},
-    {label:'PRADA', value:'PRADA'},
+
+const brandName = [
+    "Michael Kors",
+    "Calvin Klein",
+    "free people",
+    "Reformation" ,
+    "Anthropology" ,
+    "& Other Stories",
+    "Eileen Fisher",
+    "Aritzia"
 ]
+const brands =  brandName.map(b => ({label: b, value: b})) ;
+
 
 const colors = [
 	{ label: "Red", value: "red" },
