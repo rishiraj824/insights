@@ -24,5 +24,8 @@ export const addUser = (body) => dispatch => {
             dispatch( {
                 type: 'ADDED_USER'
             })
+            dispatch( {
+                type: 'CLOSE_ONBOARDING'
+            })
 		} )
 }

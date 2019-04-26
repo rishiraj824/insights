@@ -33,6 +33,11 @@ const initState = {
           ...state,
           open: true
         }
+      case 'CLOSE_ONBOARDING':
+      return {
+        ...state,
+        open: false
+      }
       default:
         return state
     }
