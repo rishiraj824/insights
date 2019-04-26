@@ -9,7 +9,6 @@ export const getDress = (id) => dispatch => {
 			return resp.text()
 		} )
 		.then( response => {
-			console.log(response);
 			if(typeof response === 'string') {
 				try{
 					response = JSON.parse(response);

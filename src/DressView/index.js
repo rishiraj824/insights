@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./style.css";
 import { connect } from "react-redux";
-import DressCard from "../DressCard";
 import Rating from '../Sharer/Rating';
 import { getDress } from '../store/actions/dress';
+import Gallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 class DressView extends Component {
     componentDidMount(){ 
@@ -13,13 +14,19 @@ class DressView extends Component {
     }
     render() {
         const { dress } = this.props;
-        const { likeability, review, name, rating, imagesURL = [] } = dress;
+        const { review, name, rating, imagesURL = [] } = dress;
+        const photos = imagesURL.map(src=> ({
+            original: src,
+            thumbnail: src
+        }))
         return (
             <div className="dress flex wrap row center">
-                <DressCard likeability={likeability} stars={rating} name={name} imgUrl={imagesURL[0]} {...dress} />                
+                
+                <Gallery showNav={false} showFullscreenButton={false} showPlayButton={false} disableArrowKeys items={photos} />
                 <div className="review">
+                    <h3>{name}</h3>
                     <Rating disabled={true} rating={rating} />
-                    <p>{review}</p>
+                    <p>"{review}"</p>
                 </div>
             </div>
         );
