@@ -20,7 +20,7 @@ const brandName = [
 const brands =  brandName.map(b => ({label: b, value: b})) ;
 
 const colors = [
-	{ label: "All", value: "all" },
+	{ label: "All", value: "All" },
 	{ label: "Red", value: "red" },
 	{ label: "Green", value: "green" },
 	{ label: "Blue", value: "blue" },
