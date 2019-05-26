@@ -1,17 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Comfortaa");
 
 * {
-	font-family: "Comfortaa", sans-serif;
+	font-family: "Proxima Nova", sans-serif;
 }
+
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "Comfortaa", sans-serif;
+	font-family: "Proxima Nova", sans-serif;
 	width: 100%;
 	height: 100%;
 	font-size: 14px;
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(https://res.cloudinary.com/dsvdhggfk/raw/upload/v1550817602/fonts/Proxima-Nova-700.ttf);
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(https://res.cloudinary.com/dsvdhggfk/raw/upload/v1550817601/fonts/Proxima-Nova-400.ttf);
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(https://res.cloudinary.com/dsvdhggfk/raw/upload/v1550817602/fonts/Proxima-Nova-300.ttf);
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(https://res.cloudinary.com/dsvdhggfk/raw/upload/v1550817602/fonts/Proxima-Nova-500.ttf);
+	font-weight: 500;
 }
 
 html {
@@ -23,7 +49,8 @@ ul {
 	list-style-type: none;
 }
 
-input, textarea {
+input,
+textarea {
 	-webkit-appearance: none;
 	outline: 0;
 	border: 1px solid #ccc;
@@ -75,6 +102,7 @@ a {
 		width: 100%;
 		height: 3rem;
 	}
+
 	button:disabled {
 		display: none;
 	}

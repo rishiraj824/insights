@@ -3,7 +3,6 @@ import Dashboard from "../Dashboard/index";
 import Landing from "../Landing/index";
 import { connect } from "react-redux";
 import { fetchUser } from "../store/actions/authActions";
-import Sharer from "../Sharer";
 
 class Page extends Component {
 	componentDidMount() {

@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sanity/client": "^0.140.11",
-    "@uppy/core": "^1.0.0",
-    "@uppy/progress-bar": "^1.0.0",
-    "@uppy/react": "^1.0.0",
-    "@uppy/tus": "^1.0.0",
     "firebase": "^5.10.0",
     "firebaseui": "^3.5.2",
     "react": "^16.8.6",
