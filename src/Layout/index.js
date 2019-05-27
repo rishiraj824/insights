@@ -15,7 +15,7 @@ class Page extends Component {
 		return (
 			<div>
 				{/* <Navbar /> */}
-				{auth.uid ? <Dashboard openOnboarding={openOnboarding} /> : <Landing />}				
+				{!auth.uid ? <Dashboard openOnboarding={openOnboarding} /> : <Landing />}				
 			</div>
 		);
 	}

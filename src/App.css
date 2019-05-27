@@ -105,7 +105,7 @@
 }
 
 .path{
-  stroke: #DDDCD7;
+  stroke: #333;
   stroke-width: 4px;
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;

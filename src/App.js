@@ -34,6 +34,8 @@ class App extends Component {
 							<line className="path" x1="3" y1="40" x2="57" y2="40" />
 							<path className="path" d="M3,60c0,0,12,0,27,0s27,0,27,0" />
 						</svg>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						Coculture
 					</h2>
 					<Route exact path="/" component={Page} />
 				</Sidebar>

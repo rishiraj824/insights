@@ -3,8 +3,8 @@ import Onboarding from "../Onboarding";
 
 const Dashboard = props => {
 	return (
-		<div className="dashboard">
-			{props.openOnboarding ? <Onboarding/>:''}
+		<div className="dashboard">		
+			{true ? <Onboarding/>:''}
 		</div>
 	);
 };
