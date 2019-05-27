@@ -7,7 +7,6 @@ export const signIn = credentials => {
 		getFirebase
 	} ) => {
 		const firebase = getFirebase();
-
 		firebase
 			.auth()
 			.signInWithPopup( new firebase.auth.GoogleAuthProvider() )
