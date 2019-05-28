@@ -4,12 +4,11 @@ import "./styles/modal.css";
 const modal = props => {
 	const { close } = props;
 	return (
-		<div>
+		props.show ? <div>
 			<div
 				className="modal-wrapper"
 				style={{
-					transform: props.show ? "translateY(0)" : "translateY(-100%)",
-					opacity: props.show ? "1" : "0"
+					transform: props.show ? "translateY(0)" : "translateY(-100%)",					
 				}}>
 				{close && (
 					<div className="modal-header">
@@ -20,7 +19,7 @@ const modal = props => {
 				)}
 				<div className="modal-body">{props.children}</div>
 			</div>
-		</div>
+		</div>:''
 	);
 };
 

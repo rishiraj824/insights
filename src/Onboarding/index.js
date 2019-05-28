@@ -5,18 +5,16 @@ import Modal from "../components/modal";
 import Select from "react-select";
 import ReactTable from 'react-table';
 import '../../node_modules/react-table/react-table.css'
+import modal from "../components/modal";
 
 class Onboarding extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isShowing: true,
-			step: 0
+			isShowing: false
 		};
 	}
-	next = () => this.setState({ step: this.state.step + 1 });
-
-	prev = () => this.setState({ step: this.state.step - 1 });
+	
 
 	openModalHandler = () => {
 		this.setState({
@@ -39,53 +37,58 @@ class Onboarding extends Component {
 			}
 		});
 	};
-
-	onChange = e => {
-		this.props.onChange({
-			values: {
-				...this.props.values,
-				weight: e.target.value
-			}
-		});
-	};
+	
 
 	render() {
-		const { isShowing, step } = this.state;
+		const { isShowing } = this.state;
 		const { values, auth, onChange } = this.props;
 		const data = [{
 			name: 'Tanner Linsley',
-			age: 26,
-			friend: {
-			  name: 'Jason Maurer',
-			  age: 23,
-			}
+			role: 'VP Engineering',
+			experience: '3',
+			age: '23'
 		  }]
 		
 		  const columns = [{
 			Header: 'Name',
 			accessor: 'name' // String-based value accessors!
 		  }, {
-			Header: 'Age',
-			accessor: 'age',
+			Header: 'Role',
+			accessor: 'role',
 			Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-		  }, {
-			id: 'friendName', // Required because our accessor is not a string
-			Header: 'Friend Name',
-			accessor: d => d.friend.name // Custom value accessors!
-		  }, {
-			Header: props => <span>Friend Age</span>, // Custom header components!
-			accessor: 'friend.age'
+		  }, {			
+				Header: 'Experience',
+				accessor: 'experience' // String-based value accessors!
+			},{
+			Header: 'Age', // Custom header components!
+			accessor: 'age'
 		  }]
 		return (
-				<div className="flex row wrap">
+				<div className="flex row wrap dashboard space-evenly">
 				<div className="filters">
-					<div>Senior Dev</div>
-					<div>Analyst</div>
+				<h3 className="filterHeader">Show</h3>
+					<div className="filterMain">All Applicants</div>
+					<div className="filter">Analyst</div>
 				</div>
-				<ReactTable
-					data={data}
-					columns={columns} 
-				/>
+				<div className="table">
+					<div className="actions">
+						<input placeholder="Search" />
+						<h3 className="addition" onClick={this.openModalHandler}>+ Add Applicant</h3>
+					</div>
+					<ReactTable
+						data={data}
+						columns={columns} 
+						defaultPageSize={10}
+						className="-striped -highlight"
+					/>
+				</div>
+				<Modal show={isShowing}>
+					<h3>Add Applicant</h3>
+					<input onChange={(e)=>this.handleChange.bind(this, { name: e.target.value })} placeholder="Name"/>
+					<input onChange={(e)=>this.handleChange.bind(this, { experience: e.target.value })} placeholder="Experience"/>
+					<input onChange={(e)=>this.handleChange.bind(this, { age: e.target.value })} placeholder="Age"/>
+					<input onChange={(e)=>this.handleChange.bind(this, { role: e.target.value })} placeholder="Job Role"/>
+				</Modal>
 				</div>
 		);
 	}

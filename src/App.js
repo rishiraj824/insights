@@ -28,7 +28,7 @@ class App extends Component {
 					onSetOpen={this.onSetSidebarOpen}
 					overlayClassName={"overlay"}
 					styles={{ sidebar: { background: "white" } }}>
-					<h2 className="logo">
+					<div className="logo">
 						<svg onClick={() => this.onSetSidebarOpen(true)} width="100%" height="100%" viewBox="0 0 60 80" preserveAspectRatio="none">
 							<path className="path" d="M3,20c0,0,12,0,27,0s27,0,27,0" />
 							<line className="path" x1="3" y1="40" x2="57" y2="40" />
@@ -36,7 +36,7 @@ class App extends Component {
 						</svg>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						Coculture
-					</h2>
+					</div>
 					<Route exact path="/" component={Page} />
 				</Sidebar>
 			</Router>
