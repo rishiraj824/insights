@@ -1,6 +1,6 @@
-const dress = (state = {}, action) => {
+const applicants = (state = {}, action) => {
     switch (action.type) {
-        case 'DRESS_FETCHED':
+        case 'APPLICANTS_FETCHED':
             return {
                 ...action.payload
             }
@@ -8,4 +8,4 @@ const dress = (state = {}, action) => {
             return state    
     }
 }
-export default dress;
+export default applicants;

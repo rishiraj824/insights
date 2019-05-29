@@ -15,15 +15,6 @@ const initState = {
           ...state,
           authError: null
         }
-      case 'SAVE_PROFILE':
-        return {
-          ...state,
-          profile:{
-            ...state.profile,
-            ...action.payload
-          }
-        }
-  
       case 'SIGNOUT_SUCCESS':
         return state;
   

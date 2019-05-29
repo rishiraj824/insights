@@ -3,8 +3,8 @@ import config from '../../config/index';
 const host = config.host;
 
 
-export const getDress = (id) => dispatch => {
-	fetch( `${host}/getDress?dressId=${id}` )
+export const getApplicants = (id) => dispatch => {
+	fetch( `${host}/getAllApplicants` )
 		.then( resp => {
 			return resp.text()
 		} )
@@ -17,7 +17,7 @@ export const getDress = (id) => dispatch => {
 				}
 			}
 			dispatch( {
-				type: "DRESS_FETCHED",
+				type: "APPLICANTS_FETCHED",
 				payload: response
 			} );
 		} )

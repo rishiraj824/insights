@@ -8,9 +8,9 @@ export const onChange = (payload) => dispatch => {
     })
 }
 
-export const addUser = (body) => dispatch => {
+export const addApplicant = (body) => dispatch => {
     console.log(body);
-    fetch( `${host}/addUser`, {
+    fetch( `${host}/addApplicant`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -22,10 +22,7 @@ export const addUser = (body) => dispatch => {
 		} )
 		.then( response => {
             dispatch( {
-                type: 'ADDED_USER'
-            })
-            dispatch( {
-                type: 'CLOSE_ONBOARDING'
-            })
+                type: 'ADDED_APPLICANT'
+            })            
 		} )
 }
