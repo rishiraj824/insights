@@ -2,18 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../store/actions/authActions";
-import { openSharer } from '../store/actions/share';
 
 const SignedInLinks = props => {
 	return (
 		<div>
 			<ul>
-				<li>
-					<NavLink to="/">Explore</NavLink>
-				</li>
-				<li>
-					<NavLink to="/new" >Share Photo</NavLink>
-				</li>
 				<li>
 					<a onClick={props.signOut}>Log Out</a>
 				</li>
@@ -29,8 +22,7 @@ const SignedInLinks = props => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		signOut: () => dispatch(signOut()),
-		openSharer: () => dispatch(openSharer())
+		signOut: () => dispatch(signOut())
 	};
 };
 

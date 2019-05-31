@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { signIn, signUp } from "../store/actions/authActions";
 
 const landing = ({ signIn }) => {
-	console.log(signIn);
 	return (
 		<div className="landing-container">
 			<div className="left">

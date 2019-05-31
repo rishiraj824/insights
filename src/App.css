@@ -112,7 +112,7 @@
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
 }
-.logo {
+.logoNav {
   color: #000000;
   position: relative;
   display: flex;
@@ -121,6 +121,18 @@
   margin: 0;
   line-height: 4rem;
   box-shadow: 0 2px 4px 0 rgba(53, 53, 53, 0.15);
+  background: #fff;
+  padding: 0 15px;
+}
+
+.logo {
+  color: #000000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  margin: 0;
+  line-height: 4rem;
   background: #fff;
 }
 .filterHeader {

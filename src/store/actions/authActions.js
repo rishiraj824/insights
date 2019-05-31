@@ -27,7 +27,7 @@ export const fetchUser = (id) => dispatch => {
 	fetch( `${host}/getUser?userId=${id}` )
 		.then( resp => {
 			return resp.text()
-		} )
+		})
 		.then( response => {
 			console.log(response);
 			if(typeof response === 'string') {
