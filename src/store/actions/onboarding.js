@@ -1,4 +1,5 @@
 import config from '../../config/index';
+import { getApplicants } from './applicants';
 const host = config.host;
 
 export const onChange = (payload) => dispatch => {
@@ -23,6 +24,7 @@ export const addApplicant = (body) => dispatch => {
 		.then( response => {
             dispatch( {
                 type: 'ADDED_APPLICANT'
-            })            
+            }) 
+            dispatch(getApplicants());
 		} )
 }

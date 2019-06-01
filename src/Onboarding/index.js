@@ -46,7 +46,7 @@ class Onboarding extends Component {
 
 	render() {
 		const { isShowing } = this.state;
-		const { addApplicant } = this.props;
+		const { addApplicant, values } = this.props;
 		const { applicants: data } = this.props;
 		
 		  const columns = [{
@@ -91,7 +91,7 @@ class Onboarding extends Component {
 					<input onChange={(e)=>this.handleChange({ experience: e.target.value })} placeholder="Experience"/>
 					<input onChange={(e)=>this.handleChange({ age: e.target.value })} placeholder="Age"/>
 					<input onChange={(e)=>this.handleChange({ role: e.target.value })} placeholder="Job Role"/>
-					<button onClick={addApplicant}>Submit</button>
+					<button onClick={()=>{addApplicant(values); this.closeModalHandler()}}>Submit</button>
 				</Modal>
 				</div>
 		);
