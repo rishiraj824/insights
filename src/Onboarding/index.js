@@ -51,16 +51,16 @@ class Onboarding extends Component {
 		
 		  const columns = [{
 			Header: 'Name',
-			accessor: 'name' // String-based value accessors!
+			accessor: 'name'
 		  }, {
 			Header: 'Role',
 			accessor: 'role',
-			Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-		  }, {			
+			Cell: props => <span className='number'>{props.value}</span> 
+			}, {			
 				Header: 'Experience',
-				accessor: 'experience' // String-based value accessors!
+				accessor: 'experience' 
 			},{
-			Header: 'Age', // Custom header components!
+			Header: 'Age',
 			accessor: 'age'
 		  }]
 		return (

@@ -10,7 +10,6 @@ export const onChange = (payload) => dispatch => {
 }
 
 export const addApplicant = (body) => dispatch => {
-    console.log(body);
     fetch( `${host}/addApplicant`, {
         method: 'POST',
         headers: {
