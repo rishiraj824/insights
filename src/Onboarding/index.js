@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { onChange } from "../store/actions/onboarding";
-import Modal from "../components/modal";
-import Select from "react-select";
+import { onChange, addApplicant } from "../store/actions/onboarding";
 import ReactTable from 'react-table';
 import '../../node_modules/react-table/react-table.css'
-import modal from "../components/modal";
+import Modal from "react-modal";
+import { getApplicants } from "../store/actions/applicants";
 
 class Onboarding extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isShowing: false
+			isShowing: false,
+			data: []
 		};
+	}
+
+	componentDidMount() {
+		const { getApplicants } = this.props;
+		getApplicants();
 	}
 	
 
@@ -41,13 +46,8 @@ class Onboarding extends Component {
 
 	render() {
 		const { isShowing } = this.state;
-		const { values, auth, onChange } = this.props;
-		const data = [{
-			name: 'Tanner Linsley',
-			role: 'VP Engineering',
-			experience: '3',
-			age: '23'
-		  }]
+		const { addApplicant } = this.props;
+		const { applicants: data } = this.props;
 		
 		  const columns = [{
 			Header: 'Name',
@@ -82,12 +82,16 @@ class Onboarding extends Component {
 						className="-striped -highlight"
 					/>
 				</div>
-				<Modal show={isShowing}>
+				<Modal 
+					isOpen={isShowing}
+					onRequestClose={this.closeModalHandler}
+				>
 					<h3>Add Applicant</h3>
-					<input onChange={(e)=>this.handleChange.bind(this, { name: e.target.value })} placeholder="Name"/>
-					<input onChange={(e)=>this.handleChange.bind(this, { experience: e.target.value })} placeholder="Experience"/>
-					<input onChange={(e)=>this.handleChange.bind(this, { age: e.target.value })} placeholder="Age"/>
-					<input onChange={(e)=>this.handleChange.bind(this, { role: e.target.value })} placeholder="Job Role"/>
+					<input onChange={(e)=>this.handleChange({ name: e.target.value })} placeholder="Name"/>
+					<input onChange={(e)=>this.handleChange({ experience: e.target.value })} placeholder="Experience"/>
+					<input onChange={(e)=>this.handleChange({ age: e.target.value })} placeholder="Age"/>
+					<input onChange={(e)=>this.handleChange({ role: e.target.value })} placeholder="Job Role"/>
+					<button onClick={addApplicant}>Submit</button>
 				</Modal>
 				</div>
 		);
@@ -98,13 +102,16 @@ const mapStateToProps = state => {
 	return {
 		profile: state.firebase.profile,
 		auth: state.firebase.auth,
-		values: state.onboarding.values
+		values: state.onboarding.values,
+		applicants: state.applicants
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onChange: payload => dispatch(onChange(payload))
+		onChange: payload => dispatch(onChange(payload)),
+		addApplicant: payload => dispatch(addApplicant(payload)),
+		getApplicants: payload => dispatch(getApplicants(payload))
 	};
 };
 

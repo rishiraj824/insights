@@ -1,9 +1,9 @@
-const applicants = (state = {}, action) => {
+const applicants = (state = [], action) => {
     switch (action.type) {
         case 'APPLICANTS_FETCHED':
-            return {
-                ...action.payload
-            }
+			const data = Object.keys(action.payload).map(key=> ({...action.payload[key]}))
+
+            return data            
         default: 
             return state    
     }

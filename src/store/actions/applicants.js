@@ -3,7 +3,7 @@ import config from '../../config/index';
 const host = config.host;
 
 
-export const getApplicants = (id) => dispatch => {
+export const getApplicants = () => dispatch => {
 	fetch( `${host}/getAllApplicants` )
 		.then( resp => {
 			return resp.text()
