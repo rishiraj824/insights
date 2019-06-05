@@ -43,3 +43,19 @@ exports.getAllApplicants = functions.https.onRequest((request, response) => {
 			});
 	});
 });
+
+exports.getApplicant = functions.https.onRequest((request, response) => {
+	cors(request, response, () => {
+		const id = request.query.id;
+		console.log(JSON.stringify(request.params));
+
+		return admin
+			.database()
+			.ref(`applicants/${id}`)
+			.once("value")
+			.then(snapshot => {
+				console.log(snapshot);
+				response.send(snapshot.val());
+			});
+	});
+});
