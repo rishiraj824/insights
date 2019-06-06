@@ -17,6 +17,7 @@
     "react-select": "^2.4.3",
     "react-sidebar": "^3.0.2",
     "react-table": "^6.10.0",
+    "recharts": "^1.6.2",
     "redux": "^4.0.1",
     "redux-firestore": "^0.7.3",
     "redux-logger": "^3.0.6",

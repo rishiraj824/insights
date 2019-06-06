@@ -1,0 +1,23 @@
+.ratiobar {
+	width: 100%;
+	display: flex;
+    flex-direction: row;
+    height: 20px;
+}
+
+.ratiobar-segment{
+    color: white;
+    text-align: center;
+    font-weight: 500;
+
+}
+
+.ratiobar-segment:first-child {
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+}
+
+.ratiobar-segment:last-child {
+	border-bottom-right-radius: 40px;
+    border-top-right-radius: 40px;
+}
