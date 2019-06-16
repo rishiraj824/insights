@@ -4,7 +4,7 @@ import Onboarding from "../Onboarding";
 const Dashboard = props => {
 	return (
 		<div className="dashboard">		
-			{true ? <Onboarding/>:''}
+			<Onboarding/>
 		</div>
 	);
 };

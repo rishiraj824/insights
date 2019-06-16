@@ -9,7 +9,7 @@ class App extends Component {
 		return (
 			<Router>
 				<Route exact path="/" component={Page} />
-				<Route exact path="/applicant" component={Report} />
+				<Route exact path="/applicant/:id" component={Report} />
 			</Router>
 		);
 	}
