@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { onChange, addApplicant } from "../store/actions/onboarding";
 import ReactTable from 'react-table';
@@ -14,13 +14,17 @@ class Onboarding extends Component {
 		super(props);
 		this.state = {
 			isShowing: false,
-			data: []
+			data: [],
+			loading: true
 		};
 	}
 
 	componentDidMount() {
 		const { getApplicants } = this.props;
 		getApplicants();
+		this.setState({
+			loading: false
+		})
 	}
 	
 
@@ -35,6 +39,18 @@ class Onboarding extends Component {
 			isShowing: false
 		});
 	};
+	getTrProps = (state, rowInfo, instance) => {
+	  if (rowInfo) {
+		return {
+			onClick: ()=> {
+				console.log(rowInfo.original);
+				console.log(this.context);
+				this.context.history.push(`/applicant/interview/${rowInfo.original.id}`)
+			}
+		}
+	  }
+	  return {};
+	}
 
 	handleChange = updated => {
 		const { props } = this;
@@ -48,10 +64,9 @@ class Onboarding extends Component {
 	
 
 	render() {
-		const { isShowing } = this.state;
+		const { isShowing, loading } = this.state;
 		const { addApplicant, values } = this.props;
 		const { applicants: data } = this.props;
-		
 		  const columns = [{
 			Header: 'Name',
 			accessor: 'name'
@@ -79,21 +94,21 @@ class Onboarding extends Component {
 					<h3 className="addition mobileAddition" onClick={this.openModalHandler}>+ Add Applicant</h3>
 					<div className='cards'>
 						{data.map(applicant=>{
-							return <div className='mobileCard'>
+							return <div key={applicant.id} className='mobileCard'>
 								<div className='fields'>
-								<div className='mobileFields'>
+								<div key={0} className='mobileFields'>
 									<h4>Name</h4>
 									<h5>{applicant.name}</h5>
 								</div>
-								<div className='mobileFields'>
+								<div key={1} className='mobileFields'>
 									<h4>Experience</h4>
 									<h5>{applicant.experience}</h5>
 								</div>
-								<div className='mobileFields'>
+								<div key={2} className='mobileFields'>
 									<h4>Role</h4>
 									<h5>{applicant.role}</h5>
 								</div>
-								<div className='mobileFields'>
+								<div key={3} className='mobileFields'>
 									<h4>Age</h4>
 									<h5>{applicant.age}</h5>
 								</div>
@@ -102,12 +117,12 @@ class Onboarding extends Component {
 							</div>
 						})}
 					</div>					
-					</div>:[
+					</div>:<>
 					<div className="filters">
 				<h3 className="filterHeader">Show</h3>
 					<div className="filterMain">All Applicants</div>
 					<div className="filter">Analyst</div>
-				</div>,
+				</div>
 				<div className="table">
 					<div className="actions">
 						<input placeholder="Search" />
@@ -116,10 +131,17 @@ class Onboarding extends Component {
 					<ReactTable
 						data={data}
 						columns={columns} 
+						loading={loading}
+						sortable={true}
+						multiSort={true}
+						showPagination={false}
+						showPageSizeOptions={false}
 						defaultPageSize={10}
-						className="-striped -highlight"
+						resizable={false}
+						getTrProps={this.getTrProps}
 					/>
-				</div>]}
+				</div>
+				</>}
 				<Modal 
 					isOpen={isShowing}
 					onRequestClose={this.closeModalHandler}
@@ -129,8 +151,8 @@ class Onboarding extends Component {
 						<div className='form flex center column'>
 							<h3>Add Applicant</h3>
 							<input onChange={(e)=>this.handleChange({ name: e.target.value })} placeholder="Name"/>
-							<input onChange={(e)=>this.handleChange({ experience: e.target.value })} placeholder="Experience"/>
-							<input onChange={(e)=>this.handleChange({ age: e.target.value })} placeholder="Age"/>
+							<input type='number' min='1' onChange={(e)=>this.handleChange({ experience: e.target.value })} placeholder="Experience"/>
+							<input type='number' min='1' onChange={(e)=>this.handleChange({ age: e.target.value })} placeholder="Age"/>
 							<input onChange={(e)=>this.handleChange({ role: e.target.value })} placeholder="Job Role"/>
 							<button className='primary margin-top-bottom-20' onClick={()=>{addApplicant(values); this.closeModalHandler()}}>Submit</button>
 						</div>
@@ -146,7 +168,8 @@ const mapStateToProps = state => {
 		profile: state.firebase.profile,
 		auth: state.firebase.auth,
 		values: state.onboarding.values,
-		applicants: state.applicants
+		applicants: state.applicants,
+		history: state.history
 	};
 };
 
@@ -159,6 +182,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Onboarding);
+		mapStateToProps,
+		mapDispatchToProps
+	)(Onboarding);

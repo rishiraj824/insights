@@ -1,0 +1,46 @@
+.recorder {
+    background: #fff;
+    border-radius: 4px;
+    width: 70%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.recorderTop {
+    padding: 48px 36px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.question-sets {
+    padding: 60px 36px;
+}
+.question {
+    color: #191919;
+    font-weight: 500;
+    opacity: 0.64;
+    padding-right: 20px;
+    width: 60%;
+}
+.solid {
+    opacity: 0.92;
+    border-radius: 32px;
+    background-color: #00abe6;
+    color: #fff;
+    height: 2rem;
+}
+.name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #304046;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.role, .age{
+    font-weight: 400;
+    color:#304046;
+    margin: 4px 0;
+    font-size: 14px;
+}
+.width-120{
+    width: 120px;    
+}

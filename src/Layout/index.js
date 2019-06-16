@@ -30,7 +30,7 @@ class Page extends Component {
 const mapStateToProps = state => {
 	return {
 		auth: state.firebase.auth,
-		openOnboarding: state.onboarding.open
+		openOnboarding: state.onboarding.open,
 	};
 };
 

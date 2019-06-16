@@ -17,6 +17,7 @@
     "react-scripts": "2.1.8",
     "react-select": "^2.4.3",
     "react-sidebar": "^3.0.2",
+    "react-speech-recognition": "^2.0.1",
     "react-table": "^6.10.0",
     "recharts": "^1.6.2",
     "redux": "^4.0.1",

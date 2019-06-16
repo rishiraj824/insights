@@ -35,6 +35,19 @@
     .flex-start {
         justify-content: flex-start;
     }
+    .width-120 {
+        width: 100%;
+    }
+    .details {
+        width: 100%;
+    }
+
+    .recorderTop {
+        padding:  36px 26px;
+    }
+    .question-sets {
+        padding: 36px 26px;
+    }
     .logoNav {    
         border-bottom: 1px solid #ececec;
     }
