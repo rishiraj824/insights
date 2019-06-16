@@ -17,10 +17,12 @@
     margin: 0;
     color: #777d7f;
     font-size: 12px;
+    text-transform: uppercase;
 }
 .mobileFields h5 {
     margin: 0;
     font-size: 14px;
+    font-weight: 300;
     color: #2f3a3e;
     margin-bottom: 20px;
 
@@ -33,7 +35,9 @@
     .flex-start {
         justify-content: flex-start;
     }
-
+    .logoNav {    
+        border-bottom: 1px solid #ececec;
+    }
     .dashboard {
         padding: 0 !important;
         width: 100%;
