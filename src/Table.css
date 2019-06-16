@@ -33,6 +33,7 @@
     font-size: 14px;
     color: #2f3a3e;
     padding-left: 16px;
+    font-weight: 300;
 }
 
 .ReactTable.-highlight .rt-tbody .rt-tr:not(.-padRow):hover {
