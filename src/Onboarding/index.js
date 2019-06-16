@@ -76,6 +76,7 @@ class Onboarding extends Component {
 							<option value={'dev'}>Dev</option>
 						</select>
 					</div>
+					<h3 className="addition mobileAddition" onClick={this.openModalHandler}>+ Add Applicant</h3>
 					<div className='cards'>
 						{data.map(applicant=>{
 							return <div className='mobileCard'>
@@ -100,8 +101,7 @@ class Onboarding extends Component {
 								<button>View</button>
 							</div>
 						})}
-					</div>
-					
+					</div>					
 					</div>:[
 					<div className="filters">
 				<h3 className="filterHeader">Show</h3>

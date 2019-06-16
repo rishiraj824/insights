@@ -37,13 +37,20 @@
     .dashboard {
         padding: 0 !important;
         width: 100%;
+        position: relative;
+    }
+    .ReactModal__Content {
+        width: 75%;
+        margin: 0 auto;
+        height: 401px;
     }
 }
 
 .mobileSearch{
     width: 50%;
+    border-radius: 0;
+    border: 0;
     border-right: 1px solid #ececec;
-    border-bottom: 1px solid #ececec;
 }
 .mobileSelect {
     width: 50%;
@@ -64,4 +71,10 @@
     height: 40px;
     line-height: 40px;
     justify-content: space-between;
+}
+
+.mobileAddition {
+    position: absolute;
+    top: -53px;
+    right: 30px;
 }
