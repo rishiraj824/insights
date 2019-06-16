@@ -22,3 +22,8 @@ export const getApplicants = () => dispatch => {
 			} );
 		} )
 }
+
+export const searchApplicants = (value) => dispatch => { 
+	
+
+}

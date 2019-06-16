@@ -1,0 +1,44 @@
+.ReactTable .rt-tbody .rt-tr-group {
+    background: #ffff;
+    line-height: 2rem;
+    border-bottom: 1px solid #dfdfdf;
+    cursor: pointer;
+}
+
+.ReactTable {
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.ReactTable .rt-thead .rt-th.-cursor-pointer, .ReactTable .rt-thead .rt-td.-cursor-pointer {
+    line-height: 2.5rem;
+}
+
+.ReactTable .rt-thead.-header {
+    height: 3.4rem;
+    background: #fff;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #777d7f;
+}
+.ReactTable .rt-table {
+    border-radius: 4px;
+}
+.ReactTable .rt-thead .rt-th, .ReactTable .rt-thead .rt-td, .ReactTable .rt-tbody .rt-td {
+    border-right: 0;
+}
+
+.ReactTable .rt-tbody .rt-td  {
+    font-size: 14px;
+    color: #2f3a3e;
+    padding-left: 16px;
+}
+
+.ReactTable.-highlight .rt-tbody .rt-tr:not(.-padRow):hover {
+    background: #f7fdff;
+}
+.ReactTable.-striped .rt-tr.-odd {
+    background: #fff;
+    cursor: pointer;
+}

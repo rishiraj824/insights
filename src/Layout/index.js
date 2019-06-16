@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Dashboard from "../Dashboard/index";
 import Landing from "../Landing/index";
+import {isMobile} from 'react-device-detect';
 import { connect } from "react-redux";
 
 class Page extends Component {
@@ -18,7 +19,7 @@ class Page extends Component {
 							</g>
 						</svg>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					Coculture
+					{isMobile? '':'Coculture'}
 				</div>:''}
 				{auth.uid ? <Dashboard openOnboarding={openOnboarding} /> : <Landing />}				
 			</div>

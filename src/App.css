@@ -140,7 +140,6 @@ img {
   height: 4rem;
   margin: 0;
   line-height: 4rem;
-  background: #fff;
 }
 .filterHeader {
   opacity: 0.64;
@@ -161,7 +160,7 @@ img {
 }
 .filters {
   width: 15%;
-  margin-top: 6%; 
+  margin-top: 3%; 
   border-radius: 8px;
   border: solid 1px #dfdfdf;
   background-color: #ffffff;
@@ -180,12 +179,35 @@ img {
 }
 .table {
   width: 70%;
-  margin-top: 6%;
+  margin-top: 3%;
+}
+
+.form input {
+  margin: 5px 0;
+}
+.ReactModal__Content {
+  width: 50%;
+  margin: 0 auto;
+  height: 370px;
+}
+.ReactModal__Overlay {
+  background: rgba(0,0, 0, 0.75) !important;
+  background-color: rgba(0,0, 0, 0.75) !important;
+}
+.primary{    
+  border: 1px solid #00abe6;
+  border-radius: 4px;
+  height: 2rem;
+  width: 100%;
+}
+.margin-top-bottom-20 {
+  margin: 20px 0;
 }
 .dashboard {
   margin: auto;
-  padding: 0 20px;
+  width: 100%;
 }
+
 .google-logo {    
   width: 24px;
   height: 24px;
