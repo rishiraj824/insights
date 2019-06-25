@@ -8938,10 +8938,10 @@ reduce-reducers@0.4.3:
   resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.4.3.tgz#8e052618801cd8fc2714b4915adaa8937eb6d66c"
   integrity sha512-+CNMnI8QhgVMtAt54uQs3kUxC3Sybpa7Y63HR14uGLgI9/QR5ggHvpxwhGGe3wmx5V91YwqQIblN9k5lspAmGw==
 
-redux-firestore@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/redux-firestore/-/redux-firestore-0.7.3.tgz#10c36458f535b0e6a561cb3acdf5318699a46d0a"
-  integrity sha512-H8li+rKr2OWGzZnvwSdEywNaVAGznPzTG/Eksna7emk6+3O4Rgkhh0wLxEbE1WblOU9uqYrZM2nwEvIOZwmNiA==
+redux-firestore@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/redux-firestore/-/redux-firestore-0.8.0.tgz#ca72e775bb12edb2d8ea11030b9cb2061620f3ef"
+  integrity sha512-axc5YEe1Ls2Lyibu8cIuCxH7ilYFpJXsyw9k2bORPzdZukyWp39G2k7nsl8KVw8aksvXI1nC1icd0rBNMribDg==
   dependencies:
     immer "1.5.0"
     lodash "^4.17.11"

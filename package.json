@@ -21,7 +21,7 @@
     "react-table": "^6.10.0",
     "recharts": "^1.6.2",
     "redux": "^4.0.1",
-    "redux-firestore": "^0.7.3",
+    "redux-firestore": "^0.8.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "thunk": "^0.0.1",

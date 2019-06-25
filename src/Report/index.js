@@ -3,6 +3,8 @@ import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis }
 import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 import { Ratiobar } from "../components/ratiobar";
 import "./style.css";
+import { getNavbar } from "../components/nav";
+import { connect } from "react-redux";
 
 const dummyReport = {
 	radarCharts: [
@@ -51,58 +53,73 @@ const dummyUser = {
 	role: "UI Lead"
 };
 
-export default class Report extends Component {
+export class Report extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
 	}
 	render() {
 		return (
-			<div className={"report-container"}>
-				<div className={"profile"}>
-					<h3> {dummyUser.name} </h3>
-					<p> {dummyUser.role}</p>
-					<p> {dummyUser.experience} year experience</p>
-				</div>
-				<div className={"chart-container"}>
-					{dummyReport.radarCharts.map(radarChart => (
-						<div className={"card tall"}>
-							<MobileView>
-								<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
-									<PolarGrid />
-									<PolarAngleAxis dataKey="word" />
-									<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-								</RadarChart>
-							</MobileView>
-							<BrowserView>
-								<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
-									<PolarGrid />
-									<PolarAngleAxis dataKey="word" />
-									<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-								</RadarChart>
-							</BrowserView>
-						</div>
-					))}
+			<div>
+				{getNavbar(this.props.auth)}
 
-					{dummyReport.ratioBarCharts.map(ratioBarChart => (
-						<div className={"card"}>
-							<div className={"title"}>{ratioBarChart.title} </div>
-							<div className={"divide"} />
-							<Ratiobar data={ratioBarChart.data} />
-							<br />
-						</div>
-					))}
+				<div className={"report-container"}>
+					<div className={"profile"}>
+						<h3> {dummyUser.name} </h3>
+						<p> {dummyUser.role}</p>
+						<p> {dummyUser.experience} year experience</p>
+					</div>
+					<div className={"chart-container"}>
+						{dummyReport.radarCharts.map(radarChart => (
+							<div className={"card tall"}>
+								<MobileView>
+									<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
+										<PolarGrid />
+										<PolarAngleAxis dataKey="word" />
+										<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+									</RadarChart>
+								</MobileView>
+								<BrowserView>
+									<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
+										<PolarGrid />
+										<PolarAngleAxis dataKey="word" />
+										<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+									</RadarChart>
+								</BrowserView>
+							</div>
+						))}
 
-					{dummyReport.textCharts.map(textChart => (
-						<div className={"card"}>
-							<div className={"title"}>{textChart.title} </div>
-							<div className={"divide"} />
-							<div className={"big-text"}> {textChart.data}</div>
-							<br />
-						</div>
-					))}
+						{dummyReport.ratioBarCharts.map(ratioBarChart => (
+							<div className={"card"}>
+								<div className={"title"}>{ratioBarChart.title} </div>
+								<div className={"divide"} />
+								<Ratiobar data={ratioBarChart.data} />
+								<br />
+							</div>
+						))}
+
+						{dummyReport.textCharts.map(textChart => (
+							<div className={"card"}>
+								<div className={"title"}>{textChart.title} </div>
+								<div className={"divide"} />
+								<div className={"big-text"}> {textChart.data}</div>
+								<br />
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		auth: state.firebase.auth
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	null
+)(Report);

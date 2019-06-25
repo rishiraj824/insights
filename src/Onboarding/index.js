@@ -45,7 +45,8 @@ class Onboarding extends Component {
 			onClick: ()=> {
 				console.log(rowInfo.original);
 				console.log(this.context);
-				this.context.history.push(`/applicant/interview/${rowInfo.original.id}`)
+				//this.context.history.push(`/applicant/interview/${rowInfo.original.id}`)
+				window.location.href = `/applicant/${rowInfo.original.id}/interview`
 			}
 		}
 	  }
@@ -172,6 +173,7 @@ const mapStateToProps = state => {
 		history: state.history
 	};
 };
+
 
 const mapDispatchToProps = dispatch => {
 	return {

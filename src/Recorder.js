@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Recorder.css';
-import { getApplicant } from './store/actions/applicants';
+import { getApplicant, updateTranscript } from './store/actions/applicants';
 import {isMobile} from 'react-device-detect';
 import { connect } from "react-redux";
 import questions from './questions';
@@ -15,7 +15,7 @@ class Recorder extends Component {
     }
     componentDidMount() {
         const { getApplicant } = this.props;
-        //getApplicant()
+        getApplicant(this.props.match.params.id)
     }
     changeQuestion = () => {
         this.setState({
@@ -23,8 +23,9 @@ class Recorder extends Component {
         })
     }
     render() {
-        const applicant = {"age":22,"experience":2,"name":"Benjamin Tod","role":"Assistant Manager"};
-        const { auth } = this.props;
+        //const applicant = {"age":22,"experience":2,"name":"Benjamin Tod","role":"Assistant Manager"};
+        const { auth, applicant, updateTranscript } = this.props;
+        const id = this.props.match.params.id;
         const { question } = this.state;
         return (
             <>
@@ -46,7 +47,7 @@ class Recorder extends Component {
                             <h4 className='age'>{applicant.age}</h4>
                        </div> 
                         <div className='mic'>
-                            <Dictaphone />
+                            <Dictaphone updateTranscript={updateTranscript} id={id} applicant={applicant}  />
                         </div>
                 </div>
 
@@ -70,7 +71,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		getApplicant: payload => dispatch(getApplicant(payload))
+        getApplicant: payload => dispatch(getApplicant(payload)),
+        updateTranscript: payload => dispatch(updateTranscript(payload)),
 	};
 };
 
