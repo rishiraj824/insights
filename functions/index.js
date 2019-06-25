@@ -12,7 +12,8 @@ exports.addApplicant = firefunctions.getFunction("CREATE", {
 		name: object.name,
 		experience: object.experience,
 		age: object.age,
-		role: object.role
+		role: object.role,
+		transcript: object.transcript ? object.transcript : 'UNAVAILABLE'
 	})
 });
 
@@ -23,4 +24,16 @@ exports.getAllApplicants = firefunctions.getFunction("GET", {
 exports.getApplicant = firefunctions.getFunction("GET", {
 	ref: "applicants",
 	id: "id"
+});
+
+exports.updateApplicant = firefunctions.getFunction("PATCH", {
+	ref: "applicants",
+	id: "id",
+	requestBodyTransformer: object => ({
+		name: object.name,
+		experience: object.experience,
+		age: object.age,
+		role: object.role,
+		transcript: object.transcript
+	})
 });

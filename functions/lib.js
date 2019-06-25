@@ -41,6 +41,27 @@ class FireFunctionsFactory {
 							});
 					});
 				});
+			case "PATCH":
+				return functions.https.onRequest((request, response) => {
+					let subref = "";
+					if (request.query[id]) {
+						subref = `/${request.query[id]}`;
+					}
+					cors(request, response, () => {
+						if (request.method !== "PATCH") {
+							response.status(400).send("Please send a PATCH request");
+							return;
+						}
+						console.log(request.body.name)
+						console.log(JSON.stringify(request.body))
+						return this.database
+							.ref(`${ref}/${subref}`)
+							.set(requestBodyTransformer(request.body))
+							.then(snapshot => {
+								response.status(200).send(request.body);
+							});
+					});
+				});
 			default:
 				break;
 		}
