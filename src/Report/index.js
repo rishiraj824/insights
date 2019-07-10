@@ -5,6 +5,7 @@ import { Ratiobar } from "../components/ratiobar";
 import "./style.css";
 import { getNavbar } from "../components/nav";
 import { connect } from "react-redux";
+import { getApplicant } from "../store/actions/applicants";
 
 const dummyReport = {
 	radarCharts: [
@@ -58,55 +59,69 @@ export class Report extends Component {
 		super(props);
 		this.state = {};
 	}
+
+	componentDidMount() {
+		const { getApplicant } = this.props;
+		getApplicant(this.props.match.params.id);
+	}
 	render() {
+		console.log(this.props.applicant);
+		const { applicant } = this.props;
 		return (
 			<div>
 				{getNavbar(this.props.auth)}
 
 				<div className={"report-container"}>
-					<div className={"profile"}>
-						<h3> {dummyUser.name} </h3>
-						<p> {dummyUser.role}</p>
-						<p> {dummyUser.experience} year experience</p>
-					</div>
-					<div className={"chart-container"}>
-						{dummyReport.radarCharts.map(radarChart => (
-							<div className={"card tall"}>
-								<MobileView>
-									<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
-										<PolarGrid />
-										<PolarAngleAxis dataKey="word" />
-										<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-									</RadarChart>
-								</MobileView>
-								<BrowserView>
-									<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
-										<PolarGrid />
-										<PolarAngleAxis dataKey="word" />
-										<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-									</RadarChart>
-								</BrowserView>
-							</div>
-						))}
+					{applicant.name && (
+						<div className={"profile"}>
+							<h3> {applicant.name} </h3>
+							<p> {applicant.role}</p>
+							<p> {applicant.experience} year experience</p>
+						</div>
+					)}
+					{applicant.report && (
+						<div className={"chart-container"}>
+							{applicant.report &&
+								applicant.report.radarCharts.map(radarChart => (
+									<div className={"card tall"}>
+										<MobileView>
+											<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
+												<PolarGrid />
+												<PolarAngleAxis dataKey="word" />
+												<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+											</RadarChart>
+										</MobileView>
+										<BrowserView>
+											<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
+												<PolarGrid />
+												<PolarAngleAxis dataKey="word" />
+												<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+											</RadarChart>
+										</BrowserView>
+									</div>
+								))}
 
-						{dummyReport.ratioBarCharts.map(ratioBarChart => (
-							<div className={"card"}>
-								<div className={"title"}>{ratioBarChart.title} </div>
-								<div className={"divide"} />
-								<Ratiobar data={ratioBarChart.data} />
-								<br />
-							</div>
-						))}
+							{applicant.report.ratioBarCharts &&
+								applicant.report.ratioBarCharts.map(ratioBarChart => (
+									<div className={"card"}>
+										<div className={"title"}>{ratioBarChart.title} </div>
+										<div className={"divide"} />
+										<Ratiobar data={ratioBarChart.data} />
+										<br />
+									</div>
+								))}
 
-						{dummyReport.textCharts.map(textChart => (
-							<div className={"card"}>
-								<div className={"title"}>{textChart.title} </div>
-								<div className={"divide"} />
-								<div className={"big-text"}> {textChart.data}</div>
-								<br />
-							</div>
-						))}
-					</div>
+							{applicant.report.textCharts &&
+								applicant.report.textCharts.map(textChart => (
+									<div className={"card"}>
+										<div className={"title"}>{textChart.title} </div>
+										<div className={"divide"} />
+										<div className={"big-text"}> {textChart.data}</div>
+										<br />
+									</div>
+								))}
+						</div>
+					)}
 				</div>
 			</div>
 		);
@@ -115,11 +130,18 @@ export class Report extends Component {
 
 const mapStateToProps = state => {
 	return {
-		auth: state.firebase.auth
+		auth: state.firebase.auth,
+		applicant: state.applicant
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		getApplicant: payload => dispatch(getApplicant(payload))
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	null
+	mapDispatchToProps
 )(Report);
