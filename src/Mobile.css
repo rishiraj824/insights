@@ -41,12 +41,15 @@
     .details {
         width: 100%;
     }
+    .recorder {
+        width: 90% !important;
+    }
 
     .recorderTop {
-        padding:  36px 26px;
+        padding:  36px 26px !important;
     }
     .question-sets {
-        padding: 36px 26px;
+        padding: 36px 26px !important;
     }
     .logoNav {    
         border-bottom: 1px solid #ececec;
@@ -116,7 +119,10 @@
 
 	.right {
 		display: none;
-	}
+    }
+    .question {
+        width: 100% !important;
+    }
   }
 
 
