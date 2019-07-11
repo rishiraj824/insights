@@ -31,8 +31,8 @@ const Dictaphone = ({
 
 	return (
 		<>
-			<button onClick={listening ? stopListening : startListening} className="solid">
-				{listening ? "Stop" : "Start"} Recording
+			<button onClick={listening ? stopListening : startListening} className={listening ? "red solid":"solid"}>
+				{listening?<i className='fa fa-stop'></i>:<i className='fa fa-microphone'></i>} {listening ? "End" : "Start"} Recording
 			</button>
 			<h5 className="name">{transcript}</h5>
 			{transcript.length > 0 && (

@@ -62,7 +62,7 @@
 }
 
 .right{
-  width: 50%;
+  width: 60%;
   align-items: center;
   justify-content: space-around;
   height: 100vh;
@@ -74,22 +74,6 @@ img {
   width: auto;
 }
 
-@media only screen and (max-width: 600px) {
-  .main{
-    position: relative;
-    justify-content: space-around;
-    text-align: center;
-    width: 100%;
-  }
-
-  .left{
-    width: 100%;
-  }
-
-  .butt-ref{
-    height: 6rem!important;
-  }
-}
 
 .slider-container{
   display: flex;
@@ -184,9 +168,49 @@ img {
   width: 70%;
   margin-top: 3%;
 }
-
+.input-container {
+  margin: 10px 0;
+  width: 100%;
+}
+.auth {
+  min-width: 190px;
+  margin-top: 10px;
+}
+.label {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+.auth-action {
+  width: 100%;
+}
+.dialog {
+  position: absolute;
+  right: 17px;
+  top: 50px;
+  background: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+  height: 30px;
+  line-height: 30px;
+  width: 100px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.auth-links{    
+  color: #00abe6;
+  margin-right: auto;
+  cursor: pointer;
+  line-height: 40px;
+  margin-top: 10px;
+}
 .form input {
   margin: 5px 0;
+}
+.left input {
+  width: 100%;
+}
+.logout {
+  margin-left: auto;
 }
 .ReactModal__Content {
   width: 50%;
@@ -229,3 +253,9 @@ img {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   padding: 10px 15px;
 }
+.white {
+  background: #fff;
+}
+
+.title-center { width:100%; text-align:center; border-bottom: 1px solid #bbbbbb; line-height:0.1em; margin:10px 0 20px; } 
+.title-center span { background:#fff; color: #bbbbbb; padding:0 15px; }

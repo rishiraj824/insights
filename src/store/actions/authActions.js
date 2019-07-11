@@ -23,6 +23,48 @@ export const signIn = credentials => {
 	};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 };
 
+export const signOutAuthDialog = () => dispatch => {
+	dispatch({
+		type: 'TOGGLE_DIALOG'
+	})
+}
+
+export const onInputChange = (payload) => dispatch => {
+	dispatch({
+		type: 'ON_INPUT_CHANGE',
+		payload
+	})
+}
+
+export const signUpWithEmailPassword = (email, password) => {
+	return (dispatch, getState, {
+		getFirebase
+	}) => {
+		const firebase = getFirebase();
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+		.then(res=>{ 
+			dispatch({
+				type: 'SIGNED_UP_SUCCESS'
+			})
+		})
+		.catch(function(error) {
+			
+		});
+	}
+}
+
+export const openLoginForm = () => dispatch => {
+	dispatch({
+		type: 'LOGIN_FORM'
+	})
+}
+
+export const openSignUpForm = () => dispatch => {
+	dispatch({
+		type: 'SIGNUP_FORM'
+	})
+}
+
 export const fetchUser = (id) => dispatch => {
 	fetch( `${host}/getUser?userId=${id}` )
 		.then( resp => {
@@ -48,7 +90,23 @@ export const fetchUser = (id) => dispatch => {
 			} );
 		} )
 }
-
+export const signInWithEmailPassword = (email, password) => {
+	return (dispatch, getState, {
+		getFirebase
+	}) => {
+		const firebase = getFirebase();
+		firebase.auth().signInWithEmailAndPassword(email, password)
+		.then(res=>{			
+			dispatch( {
+				type: "LOGIN_SUCCESS"
+			} );
+		})
+		.catch(function(error) {
+		
+		// ...
+		});
+	}
+}
 export const signOut = () => {
 	return ( dispatch, getState, {
 		getFirebase
@@ -63,41 +121,6 @@ export const signOut = () => {
 					type: "SIGNOUT_SUCCESS"
 				} );
 				window.location.reload();
-			} );
-	};
-};
-
-export const signUp = newUser => {
-	return ( dispatch, getState, {
-		getFirebase,
-		getFirestore
-	} ) => {
-		const firebase = getFirebase();
-		const firestore = getFirestore();
-
-		firebase
-			.auth()
-			.signUpWithPopup( new firebase.auth.GoogleAuthProvider() )
-			.then( resp => {
-				return firestore
-					.collection( "users" )
-					.doc( resp.user.uid )
-					.set( {
-						firstName: newUser.firstName,
-						lastName: newUser.lastName,
-						initials: newUser.firstName[ 0 ] + newUser.lastName[ 0 ]
-					} );
-			} )
-			.then( () => {
-				dispatch( {
-					type: "SIGNUP_SUCCESS"
-				} );
-			} )
-			.catch( err => {
-				dispatch( {
-					type: "SIGNUP_ERROR",
-					err
-				} );
 			} );
 	};
 };

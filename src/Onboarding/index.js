@@ -95,7 +95,9 @@ class Onboarding extends Component {
 					<h3 className="addition mobileAddition" onClick={this.openModalHandler}>+ Add Applicant</h3>
 					<div className='cards'>
 						{data.map(applicant=>{
-							return <div key={applicant.id} className='mobileCard'>
+							return <div onClick={()=> {
+				window.location.href = `/applicant/${applicant.id}/interview`
+			}} key={applicant.id} className='mobileCard'>
 								<div className='fields'>
 								<div key={0} className='mobileFields'>
 									<h4>Name</h4>
@@ -114,7 +116,6 @@ class Onboarding extends Component {
 									<h5>{applicant.age}</h5>
 								</div>
 								</div>
-								<button>View</button>
 							</div>
 						})}
 					</div>					
