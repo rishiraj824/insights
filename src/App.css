@@ -139,10 +139,12 @@ img {
   font-size: 14px;
   font-weight: 600;
   color: #000000;
+  cursor: pointer;
 }
 .filter {
   opacity: 0.64;
   font-size: 14px;
+  cursor: pointer;
   color: #000000;
 }
 .filters {
@@ -211,6 +213,7 @@ img {
 }
 .logout {
   margin-left: auto;
+  cursor: pointer;
 }
 .ReactModal__Content {
   width: 50%;
