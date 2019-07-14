@@ -92,6 +92,26 @@ export const getApplicant = id => dispatch => {
 		});
 };
 
+export const getApplicant2 = id => dispatch => {
+	fetch(`${host}/getApplicant?id=${id}`)
+		.then(resp => {
+			return resp.text();
+		})
+		.then(response => {
+			if (typeof response === "string") {
+				try {
+					response = JSON.parse(response);
+				} catch (err) {
+					console.log("No response while fetching user data...");
+				}
+			}
+			dispatch({
+				type: "APPLICANT_FETCHED2",
+				payload: response
+			});
+		});
+};
+
 export const updateTranscript = data => dispatch => {
 	const { id } = data;
 	console.log(data);

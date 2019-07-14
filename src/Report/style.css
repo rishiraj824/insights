@@ -59,6 +59,26 @@
 	height: fit-content;
 }
 
+.compare{
+	width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.compare-profile{
+	width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.compare-profile .profile{
+	margin: 12px;
+}
+
+.compare .report-container{
+	grid-template-columns: unset;
+}
+
 @media only screen and (max-width: 600px) {
 	.report-container {
 		display: flex;
