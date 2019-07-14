@@ -73,28 +73,30 @@ export class Report extends Component {
 		return (
 			<div>
 				{getNavbar(this.props.auth)}
-				<div className={"compare-profile"}>
-					{applicant1 && applicant1.name && (
-						<div className={"profile"}>
-							<h3> {applicant1.name} </h3>
-							<p> {applicant1.role}</p>
-							<p> {applicant1.experience} year experience</p>
-						</div>
-					)}
 
-					{applicant2 && applicant2.name && (
-						<div className={"profile"}>
-							<h3> {applicant2.name} </h3>
-							<p> {applicant2.role}</p>
-							<p> {applicant2.experience} year experience</p>
-						</div>
-					)}
-				</div>
+				<div className={"report-container"}>
+					<div className={"profiles"}>
+						{applicant1 && applicant1.name && (
+							<div className={"profile"}>
+								<h3> {applicant1.name} </h3>
+								<p> {applicant1.role}</p>
+								<p> {applicant1.experience} year experience</p>
+							</div>
+						)}
+						<br />
 
-				<div className="compare">
-					<div className={"report-container"}>
-						{applicant1.report && (
-							<div className={"chart-container"}>
+						{applicant2 && applicant2.name && (
+							<div className={"profile"}>
+								<h3> {applicant2.name} </h3>
+								<p> {applicant2.role}</p>
+								<p> {applicant2.experience} year experience</p>
+							</div>
+						)}
+					</div>
+
+					{applicant1.report && applicant2.report && (
+						<div className={"compare-chart-container"}>
+							<div className={"compare-chart"}>
 								{applicant1.report &&
 									applicant1.report.radarCharts.map((radarChart, key) => (
 										<div className={"card tall"} key={key}>
@@ -135,11 +137,7 @@ export class Report extends Component {
 										</div>
 									))}
 							</div>
-						)}
-					</div>
-					<div className={"report-container"}>
-						{applicant2.report && (
-							<div className={"chart-container"}>
+							<div className={"compare-chart"}>
 								{applicant2.report &&
 									applicant2.report.radarCharts.map((radarChart, key) => (
 										<div className={"card tall"} key={key}>
@@ -180,8 +178,8 @@ export class Report extends Component {
 										</div>
 									))}
 							</div>
-						)}
-					</div>
+						</div>
+					)}
 				</div>
 			</div>
 		);

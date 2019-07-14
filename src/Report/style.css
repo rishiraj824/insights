@@ -88,6 +88,22 @@
 	margin-top: 10px;
 }
 
+.compare-chart-container{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 12px;
+}
+
+.compare-chart{
+	display: flex;
+	flex-direction: column;
+}
+
+.compare-chart .card{
+	margin-bottom: 12px;
+}
+
 @media only screen and (max-width: 600px) {
 	.report-container {
 		display: flex;
@@ -110,4 +126,12 @@
 	.compare {
 		grid-template-columns: 1fr;
 	}
+
+	.compare-chart-container{
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 12px;
+	}
+	
 }
