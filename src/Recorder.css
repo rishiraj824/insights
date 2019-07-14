@@ -27,6 +27,9 @@
 	color: #fff;
 	height: 2rem;
 }
+.red {
+    background-color: #bc2c23 !important;
+}
 .name {
 	font-weight: 600;
 	font-size: 15px;

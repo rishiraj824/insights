@@ -1,7 +1,7 @@
 import React from "react";
 import { isMobile } from "react-device-detect";
 
-export const getNavbar = auth => {
+export const getNavbar = (auth, signOut, signOutDialog, showDialog) => {
 	return auth.uid ? (
 		<div className="logoNav">
 			<svg xmlns="http://www.w3.org/2000/svg" width="26" height="31" viewBox="0 0 26 31">
@@ -11,7 +11,13 @@ export const getNavbar = auth => {
 				</g>
 			</svg>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			{isMobile ? "" : "Coculture"}
+			{isMobile ? "" : "Coculture"}			
+			{isMobile? '':<a className='link logout' onClick={signOutDialog}>
+				{auth.displayName} &nbsp;<i className='fa fa-chevron-down'></i>
+			</a>}
+			{showDialog? <div className="dialog">
+				<a className='link' onClick={signOut}>Logout</a>
+				</div> :''}
 		</div>
 	) : (
 		<span />

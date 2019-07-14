@@ -1,5 +1,9 @@
 const initState = {
-    authError: null
+    authError: null,
+    showDialog: false,
+    signUpForm: false,
+    email: '',
+    password: ''
   }
   
   const authReducer = (state = initState, action) => {
@@ -23,7 +27,25 @@ const initState = {
           ...state,
           authError: null
         }
-  
+      case 'LOGIN_FORM': 
+        return initState
+      case 'SIGNUP_FORM':
+      return {
+        ...state,
+        email:'',
+        password:'',
+        signUpForm: true,
+      }
+      case 'TOGGLE_DIALOG':
+          return {
+            ...state,
+            showDialog: !state.showDialog
+          }
+      case 'ON_INPUT_CHANGE':
+        return {
+          ...state,
+          ...action.payload
+        }
       case 'SIGNUP_ERROR':
         console.log('signup error')
         return {

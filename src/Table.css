@@ -25,6 +25,9 @@
 .ReactTable .rt-table {
     border-radius: 4px;
 }
+.ReactTable .rt-tr:hover {
+    background: #f7fdff;
+}
 .ReactTable .rt-thead .rt-th, .ReactTable .rt-thead .rt-td, .ReactTable .rt-tbody .rt-td {
     border-right: 0;
 }
@@ -34,6 +37,7 @@
     color: #2f3a3e;
     padding-left: 16px;
     font-weight: 300;
+    text-align: center;
 }
 
 .ReactTable.-highlight .rt-tbody .rt-tr:not(.-padRow):hover {

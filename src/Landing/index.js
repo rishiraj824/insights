@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
 import { connect } from "react-redux";
-import { signIn, signUp } from "../store/actions/authActions";
+import { signIn, signInWithEmailPassword, onInputChange, openLoginForm, openSignUpForm, signUpWithEmailPassword } from "../store/actions/authActions";
 
-const landing = ({ signIn }) => {
+const landing = ({ signIn, signInWithEmailPassword, openSignUpForm, openLoginForm, signUpForm, signUpWithEmailPassword, onInputChange, email, password }) => {
 	return (
-		<div className="landing-container">
+		<div className="landing-container white">
 			<div className="left">
 				<a href="/" className="logo">
 					<svg xmlns="http://www.w3.org/2000/svg" width="26" height="31" viewBox="0 0 26 31">
@@ -16,6 +16,22 @@ const landing = ({ signIn }) => {
 					</svg>
 					&nbsp;Coculture
 				</a>
+			<div className='input-container'>
+				<span className='label'>Email:</span>
+				<input onChange={(e)=>onInputChange({ email: e.target.value})} placeholder='name@example.com' type="email" value={email} required />
+			</div>
+			<div className='input-container'>
+				<span className='label'>Password:</span>
+				<input onChange={(e)=>onInputChange({ password: e.target.value })} type="password" password={password} required />
+			</div>			
+			<div className='flex nowrap center space-between auth-action'>
+				{signUpForm? <a className='auth-links' onClick={openLoginForm}>Login if you have an account.</a>:<a className='auth-links' onClick={openSignUpForm}>Create Account</a>}
+				{signUpForm ? <button onClick={signUpWithEmailPassword.bind(null, email, password)} className='google-auth auth'>Sign Up</button>: 
+				<button onClick={signInWithEmailPassword.bind(null, email, password)} className='google-auth auth'>Sign In</button>}
+			</div>
+			<br/>
+			<h3 className='title-center'><span>OR</span></h3>
+
 			<div className="google-auth" onClick={signIn}>
 				<img src="https://lh3.googleusercontent.com/zhCjfjBXS6cw3WbR7E_B_cVDvNy7qTmOSdE8MWQaN_-vw7qJ83ae30Rvl78k9e4Gdf8uDVPO6-pfwicwHMsw5Mc=s0" className="google-logo" alt="google-logo" />&nbsp;Sign In with Google
 			</div>
@@ -31,14 +47,21 @@ const landing = ({ signIn }) => {
 const mapStateToProps = state => {
 	return {
 		authError: state.auth.authError,
-		auth: state.firebase.auth
+		auth: state.firebase.auth,
+		email: state.auth.email,
+		password: state.auth.password,
+		signUpForm: state.auth.signUpForm
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		signIn: creds => dispatch(signIn()),
-		signUp: creds => dispatch(signUp())
+		signIn: () => dispatch(signIn()),
+		signInWithEmailPassword: (email, password) => dispatch(signInWithEmailPassword(email, password)),
+		openLoginForm: () => dispatch(openLoginForm()),
+		openSignUpForm: () => dispatch(openSignUpForm()),
+		signUpWithEmailPassword: (email,password) => dispatch(signUpWithEmailPassword(email, password)),
+		onInputChange: (payload) => dispatch(onInputChange(payload))
 	};
 };
 

@@ -22,7 +22,55 @@ export const getApplicants = () => dispatch => {
 		});
 };
 
-export const searchApplicants = value => dispatch => {};
+export const onFilteredChange = (filtered, filterAllState) => dispatch => {
+	if (filtered.length > 1 && filterAllState.length) {
+	  	const filterAll = '';
+		dispatch({
+			type: 'ON_FILTER_CHANGE',
+			payload: {
+				filtered: filtered.filter((item) => item.id !== 'all'), 
+				filterAll
+			}
+		})
+    }
+    else {
+		dispatch({
+			type: 'ON_FILTER_CHANGE',
+			payload: {
+				filtered
+			}
+		})
+	}
+};
+
+export const filterAllMobFunction = (e) => dispatch => dispatch({
+		type: 'ROLE_CHANGE_MOBILE',
+		payload: {
+			filterAll: e.target.value
+		}
+	})
+
+export const roleFilter = (role) => dispatch => {
+	dispatch({
+		type: 'ROLE_CHANGE',
+		payload: {
+			role
+		}
+	})
+}
+
+export const filterAllFunction = e => dispatch => {
+    const { value } = e.target;
+    const filterAll = value;
+    const filtered = [{ id: 'all', value: filterAll }];
+	dispatch({
+		type: 'FILTER_ALL',
+		payload: {
+			filtered,
+			filterAll: e.target.value
+		}
+	})
+}
 
 export const getApplicant = id => dispatch => {
 	fetch(`${host}/getApplicant?id=${id}`)

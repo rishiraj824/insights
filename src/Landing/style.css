@@ -6,12 +6,11 @@
 }
 
 .right {
-	width: 85%;
+	width: 61%;
 	overflow: hidden;
+	margin-left: auto;
 }
-
-@media only screen and (max-width: 600px) {
-	.right {
-		display: none;
-	}
+.left {
+	margin: auto;
+	width: 30%;
 }

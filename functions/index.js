@@ -21,8 +21,25 @@ exports.addApplicant = firefunctions.getFunction("CREATE", {
 	})
 });
 
+exports.addWorkspace = firefunctions.getFunction("CREATE", {
+	ref: "workspaces",
+	requestBodyTransformer: object => ({
+		name: object.name
+	})
+});
+
 exports.getAllApplicants = firefunctions.getFunction("GET", {
 	ref: "applicants"
+});
+
+
+exports.getAllWorkspaces = firefunctions.getFunction("GET", {
+	ref: "workspaces"
+});
+
+exports.getWorkspace = firefunctions.getFunction("GET", {
+	ref: "workspaces",
+	id: "id"
 });
 
 exports.getApplicant = firefunctions.getFunction("GET", {
