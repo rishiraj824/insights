@@ -65,29 +65,6 @@
 	grid-template-columns: 1fr 1fr;
 }
 
-.compare-profile {
-	width: 100vw;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-.compare-profile .profile {
-	margin: 12px;
-}
-
-.compare .chart-container{
-	display: flex;
-	flex-direction: column;
-}
-
-.compare .report-container {
-	grid-template-columns: unset;
-}
-
-.compare .report-container .card {
-	margin-top: 10px;
-}
-
 .compare-chart-container{
 	width: 100%;
 	display: grid;
@@ -104,6 +81,16 @@
 	margin-bottom: 12px;
 }
 
+.card{
+	position: relative;
+}
+.card .recharts-wrapper{
+	/* /* position: absolute; */
+	transform: translateX(-50%); 
+	margin-left: 50%;
+	text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
 	.report-container {
 		display: flex;
@@ -117,14 +104,6 @@
 
 	.card {
 		margin-top: 10px;
-	}
-
-	.compare .chart-container {
-		width: calc(100% - 24px) !important;
-	}
-
-	.compare {
-		grid-template-columns: 1fr;
 	}
 
 	.compare-chart-container{
