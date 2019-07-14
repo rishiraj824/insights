@@ -42,6 +42,7 @@ const Dictaphone = ({
 			{transcript.length > 0 && (
 				<button
 					onClick={() => {
+						stopListening( );
 						updateTranscript({ id, ...applicant, transcript });
 					}}
 					className="solid">
