@@ -54,6 +54,8 @@ const dummyUser = {
 	role: "UI Lead"
 };
 
+const colorPalette2 = ["#b0b8f6", "#182687", "#4eb6d7"];
+
 export class Report extends Component {
 	constructor(props) {
 		super(props);
@@ -100,14 +102,14 @@ export class Report extends Component {
 												<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
 													<PolarGrid />
 													<PolarAngleAxis dataKey="word" />
-													<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+													<Radar name="Mike" dataKey="A" stroke="#55e0ab" fill="#55e0ab" fillOpacity={0.6} />
 												</RadarChart>
 											</MobileView>
 											<BrowserView>
 												<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
 													<PolarGrid />
 													<PolarAngleAxis dataKey="word" />
-													<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+													<Radar name="Mike" dataKey="A" stroke="#55e0ab" fill="#55e0ab" fillOpacity={0.6} />
 												</RadarChart>
 											</BrowserView>
 										</div>
@@ -145,14 +147,14 @@ export class Report extends Component {
 												<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
 													<PolarGrid />
 													<PolarAngleAxis dataKey="word" />
-													<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+													<Radar name="Mike" dataKey="A" stroke={colorPalette2[0]} fill={colorPalette2[0]} fillOpacity={0.6} />
 												</RadarChart>
 											</MobileView>
 											<BrowserView>
 												<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
 													<PolarGrid />
 													<PolarAngleAxis dataKey="word" />
-													<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+													<Radar name="Mike" dataKey="A" stroke={colorPalette2[0]} fill={colorPalette2[0]} fillOpacity={0.6} />
 												</RadarChart>
 											</BrowserView>
 										</div>
@@ -163,7 +165,7 @@ export class Report extends Component {
 										<div className={"card"} key={index}>
 											<div className={"title"}>{ratioBarChart.title} </div>
 											<div className={"divide"} />
-											<Ratiobar data={ratioBarChart.data} />
+											<Ratiobar data={ratioBarChart.data} colorPalette={colorPalette2} />
 											<br />
 										</div>
 									))}

@@ -88,14 +88,14 @@ export class Report extends Component {
 											<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
 												<PolarGrid />
 												<PolarAngleAxis dataKey="word" />
-												<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+												<Radar name="Mike" dataKey="A" stroke="#55e0ab" fill="#55e0ab" fillOpacity={0.6} />
 											</RadarChart>
 										</MobileView>
 										<BrowserView>
 											<RadarChart cx={300} cy={200} outerRadius={150} width={600} height={400} data={radarChart.data}>
 												<PolarGrid />
 												<PolarAngleAxis dataKey="word" />
-												<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+												<Radar name="Mike" dataKey="A" stroke="#55e0ab" fill="#55e0ab" fillOpacity={0.6} />
 											</RadarChart>
 										</BrowserView>
 									</div>

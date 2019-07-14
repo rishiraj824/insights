@@ -59,24 +59,33 @@
 	height: fit-content;
 }
 
-.compare{
+.compare {
 	width: 100vw;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-.compare-profile{
+.compare-profile {
 	width: 100vw;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-.compare-profile .profile{
+.compare-profile .profile {
 	margin: 12px;
 }
 
-.compare .report-container{
+.compare .chart-container{
+	display: flex;
+	flex-direction: column;
+}
+
+.compare .report-container {
 	grid-template-columns: unset;
+}
+
+.compare .report-container .card {
+	margin-top: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -85,12 +94,20 @@
 		flex-direction: column;
 	}
 
-	.chart-container{
+	.chart-container {
 		display: flex;
 		flex-direction: column;
 	}
 
-	.card{
+	.card {
 		margin-top: 10px;
+	}
+
+	.compare .chart-container {
+		width: calc(100% - 24px) !important;
+	}
+
+	.compare {
+		grid-template-columns: 1fr;
 	}
 }
