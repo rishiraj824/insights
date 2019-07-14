@@ -68,14 +68,19 @@ class Onboarding extends Component {
 			accessor: 'name'
 		  }, {
 			Header: 'Role',
-			accessor: 'role',
-			Cell: props => <span className='number'>{props.value}</span> 
+			accessor: 'role'
 			}, {			
 				Header: 'Experience',
 				accessor: 'experience' 
 			},{
 			Header: 'Age',
 			accessor: 'age'
+		  },{
+			  Header:'Report',
+			  accessor: 'report',
+			  Cell: props => props.report && props.report.length>0?<button onClick={()=> {
+				window.location.href = `/applicant/${props.applicant.id}/interview`
+			}}>View Report</button>: 'N/A'
 		  },{
               Header: "All",
               id: 'all',
@@ -142,6 +147,11 @@ class Onboarding extends Component {
 									<h4>Age</h4>
 									<h5>{applicant.age}</h5>
 								</div>
+								{applicant.report && applicant.report.length>0&&<div key={3} className='mobileFields'>
+									<button onClick={()=> {
+										window.location.href = `/applicant/${applicant.id}/report`
+									}}>View Report</button>
+								</div>}
 								</div>
 							</div>
 						})}

@@ -49,6 +49,9 @@ export const signUpWithEmailPassword = (email, password) => {
 		})
 		.catch(function(error) {
 			
+			dispatch( {
+				type: "LOGIN_ERROR"
+			} );
 		});
 	}
 }
@@ -102,8 +105,10 @@ export const signInWithEmailPassword = (email, password) => {
 			} );
 		})
 		.catch(function(error) {
-		
-		// ...
+					
+			dispatch( {
+				type: "LOGIN_ERROR"
+			} );
 		});
 	}
 }

@@ -94,7 +94,6 @@ export const getApplicant = id => dispatch => {
 
 export const updateTranscript = data => dispatch => {
 	const { id } = data;
-	console.log(data);
 	fetch(`${host}/updateApplicant?id=${id}`, {
 		method: "PATCH",
 		headers: {
