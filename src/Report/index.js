@@ -82,8 +82,8 @@ export class Report extends Component {
 					{applicant.report && (
 						<div className={"chart-container"}>
 							{applicant.report &&
-								applicant.report.radarCharts.map(radarChart => (
-									<div className={"card tall"}>
+								applicant.report.radarCharts.map((radarChart, key) => (
+									<div className={"card tall"} key={key}>
 										<MobileView>
 											<RadarChart cx={180} cy={180} outerRadius={100} width={350} height={350} data={radarChart.data}>
 												<PolarGrid />
@@ -102,8 +102,8 @@ export class Report extends Component {
 								))}
 
 							{applicant.report.ratioBarCharts &&
-								applicant.report.ratioBarCharts.map(ratioBarChart => (
-									<div className={"card"}>
+								applicant.report.ratioBarCharts.map((ratioBarChart, index) => (
+									<div className={"card"} key={index}>
 										<div className={"title"}>{ratioBarChart.title} </div>
 										<div className={"divide"} />
 										<Ratiobar data={ratioBarChart.data} />
@@ -112,8 +112,8 @@ export class Report extends Component {
 								))}
 
 							{applicant.report.textCharts &&
-								applicant.report.textCharts.map(textChart => (
-									<div className={"card"}>
+								applicant.report.textCharts.map((textChart, index) => (
+									<div className={"card"} key={index}>
 										<div className={"title"}>{textChart.title} </div>
 										<div className={"divide"} />
 										<div className={"big-text"}> {textChart.data}</div>
