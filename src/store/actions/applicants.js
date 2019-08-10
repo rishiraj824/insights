@@ -117,8 +117,7 @@ export const updateTranscript = data => dispatch => {
 	console.log(data);
 	let report = [];
 	// get the report
-	// fetch(`https://asia-east2-dialoggen.cloudfunctions.net/metrics`, {
-	fetch(`https://us-central1-hr-insights-c28c5.cloudfunctions.net/getDummyReport`, {
+	fetch(`https://asia-east2-dialoggen.cloudfunctions.net/metrics`, {
 		method: "POST",
 		// mode: "no-cors",
 		headers: {
