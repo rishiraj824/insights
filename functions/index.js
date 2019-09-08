@@ -1,4 +1,4 @@
-const FireFunctionsFactory = require("./lib");
+const FireFunctions = require("firebase-swiss");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const cors = require("cors")({
@@ -7,7 +7,7 @@ const cors = require("cors")({
 
 admin.initializeApp(functions.config().firebase);
 
-const firefunctions = new FireFunctionsFactory(admin.database());
+const firefunctions = new FireFunctions(admin.database());
 
 exports.addApplicant = firefunctions.getFunction("CREATE", {
 	ref: "applicants",
@@ -39,17 +39,17 @@ exports.getAllWorkspaces = firefunctions.getFunction("GET", {
 
 exports.getWorkspace = firefunctions.getFunction("GET", {
 	ref: "workspaces",
-	id: "id"
+	idKey: "id"
 });
 
 exports.getApplicant = firefunctions.getFunction("GET", {
 	ref: "applicants",
-	id: "id"
+	idKey: "id"
 });
 
 exports.updateApplicant = firefunctions.getFunction("PATCH", {
 	ref: "applicants",
-	id: "id",
+	idKey: "id",
 	requestBodyTransformer: object => ({
 		name: object.name,
 		experience: object.experience,
