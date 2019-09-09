@@ -33,7 +33,7 @@ const Dictaphone = ({
     <>
       <div className='flex'>
         {listening && <span className='signal' />}
-        <a href='/' className={'link'}>
+        <a href='/' className={'linkbutton'}>
           Cancel
         </a>
 
