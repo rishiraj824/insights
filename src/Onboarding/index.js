@@ -15,8 +15,17 @@ class Onboarding extends Component {
     super(props);
     this.state = {
       isShowing: false,
-      loading: true
+      loading: true,
+      selected: []
     };
+  }
+
+  pushId(id) {
+    if (this.state.selected.length === 2) {
+      this.setState({ selected: [this.state.selected[1], id] });
+    } else {
+      this.setState({ selected: [...this.state.selected, id] });
+    }
   }
 
   componentDidMount() {
@@ -57,12 +66,30 @@ class Onboarding extends Component {
         ...updated
       }
     });
+    this.pushId = this.pushId.bind(this);
   };
+
   render() {
-    const { isShowing, loading } = this.state;
+    console.log(this.state.selected);
+    const { isShowing, loading, selected } = this.state;
     const { addApplicant, values, role, onFilteredChange, roleFilter, filtered, filterAllMobFunction, filterAll, filterAllFunction } = this.props;
     const { applicants: data, original } = this.props;
     const columns = [
+      {
+        Header: '',
+        Cell: data => (
+          <div>
+            <input
+              checked={true}
+              defaultChecked={true}
+              type='checkbox'
+              onChange={event => {
+                this.pushId(data.original.id);
+              }}
+            />
+          </div>
+        )
+      },
       {
         Header: 'Name',
         accessor: 'name'
@@ -82,7 +109,6 @@ class Onboarding extends Component {
       {
         Header: 'Report',
         Cell: data => {
-          console.log(data.original.report);
           return data.original.report !== 'UNAVAILABE' && data.original.report ? (
             <button
               onClick={event => {
