@@ -67,11 +67,9 @@ export class Report extends Component {
   }
   render() {
     const { applicant, auth, signOut, signOutAuthDialog, showDialog } = this.props;
-    console.log(this.props);
     return (
       <div>
         {getNavbar(auth, signOut, signOutAuthDialog, showDialog)}
-
         <div className={'report-container'}>
           {applicant.name && (
             <div className={'profile'}>

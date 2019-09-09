@@ -71,7 +71,7 @@ textarea {
 button {
 	font-size: 14px;
 	color: #00abe6;
-	background-color: #fff;
+	background-color: transparent;
 	padding: 4px;
 	-webkit-appearance: none;
 	min-width: 10rem;

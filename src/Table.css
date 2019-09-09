@@ -2,7 +2,7 @@
     background: #ffff;
     line-height: 2rem;
     border-bottom: 1px solid #dfdfdf;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .ReactTable {

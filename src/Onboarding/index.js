@@ -42,7 +42,7 @@ class Onboarding extends Component {
 		if (rowInfo) {
 			return {
 				onClick: () => {
-					window.location.href = `/applicant/${rowInfo.original.id}/interview`;
+					// window.location.href = `/applicant/${rowInfo.original.id}/interview`;
 				}
 			};
 		}
@@ -78,6 +78,19 @@ class Onboarding extends Component {
 			{
 				Header: "Age",
 				accessor: "age"
+			},
+			{
+				Header: "",
+				Cell: data => {
+					return (
+						<button
+						onClick={() => {
+							window.location.href = `/applicant/${data.id}/interview`;
+						}}>
+							Record
+						</button>
+					) 
+				}
 			},
 			{
 				Header: "Report",
@@ -151,9 +164,6 @@ class Onboarding extends Component {
 							{data.map(applicant => {
 								return (
 									<div
-										onClick={() => {
-											window.location.href = `/applicant/${applicant.id}/interview`;
-										}}
 										key={applicant.id}
 										className="mobileCard">
 										<div className="fields">
@@ -222,7 +232,7 @@ class Onboarding extends Component {
 								showPageSizeOptions={false}
 								defaultPageSize={10}
 								resizable={false}
-								getTrProps={this.getTrProps}
+								// getTrProps={this.getTrProps}
 							/>
 						</div>
 					</>
