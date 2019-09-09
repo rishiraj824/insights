@@ -99,6 +99,7 @@ class Onboarding extends Component {
 			{
 				Header: "All",
 				id: "all",
+				show: false,
 				width: 0,
 				resizable: false,
 				sortable: false,
