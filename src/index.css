@@ -52,7 +52,6 @@ ul {
 
 input,
 textarea {
-	-webkit-appearance: none;
 	outline: 0;
 	border: 1px solid #ccc;
 	padding: 8px;
