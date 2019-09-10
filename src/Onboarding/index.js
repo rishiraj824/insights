@@ -188,7 +188,7 @@ class Onboarding extends Component {
               + Add Applicant
 			</h3>
 			{selected.length>1? <h3 className='addition mobileAddition' onClick={() => {
-                              window.location.href = `/${selected[0]}/${selected[1]}/compare`;
+                              window.location.href = `/appplicant/${selected[0]}/${selected[1]}/compare`;
                             }}>
               Compare
             </h3>:''}
@@ -249,7 +249,7 @@ class Onboarding extends Component {
                   + Add Applicant
 				</h3>				
 				{selected.length>1? <h3 className='addition' onClick={() => {
-                              window.location.href = `/${selected[0]}/${selected[1]}/compare`;
+                              window.location.href = `/appplicant/${selected[0]}/${selected[1]}/compare`;
                             }}>
 					Compare
 				</h3>:''}
