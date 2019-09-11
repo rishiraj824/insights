@@ -20,13 +20,13 @@ class Onboarding extends Component {
     };
   }
 
-  pushId = (id) => {
+  pushId = id => {
     if (this.state.selected.length === 2) {
       this.setState({ selected: [this.state.selected[1], id] });
     } else {
       this.setState({ selected: [...this.state.selected, id] });
     }
-  }
+  };
 
   componentDidMount() {
     const { getApplicants } = this.props;
@@ -73,22 +73,26 @@ class Onboarding extends Component {
     console.log(this.state.selected);
     const { isShowing, loading, selected } = this.state;
     const { addApplicant, values, role, onFilteredChange, roleFilter, filtered, filterAllMobFunction, filterAll, filterAllFunction } = this.props;
-	const { applicants: data, original } = this.props;
-	
+    const { applicants: data, original } = this.props;
+
     const columns = [
       {
         Header: '',
-        Cell: data => (
-          <div>
-            <input
-              checked={selected.indexOf(data.original.id)>-1}
-              type='checkbox'
-              onChange={event => {
-                this.pushId(data.original.id);
-              }}
-            />
-          </div>
-        )
+        Cell: data => {
+          return data.original.report !== 'UNAVAILABE' && data.original.report ? (
+            <div>
+              <input
+                checked={selected.indexOf(data.original.id) > -1}
+                type='checkbox'
+                onChange={event => {
+                  this.pushId(data.original.id);
+                }}
+              />
+            </div>
+          ) : (
+            ''
+          );
+        }
       },
       {
         Header: 'Name',
@@ -186,12 +190,18 @@ class Onboarding extends Component {
             </div>
             <h3 className='addition mobileAddition' onClick={this.openModalHandler}>
               + Add Applicant
-			</h3>
-			{selected.length>1? <h3 className='addition mobileAddition' onClick={() => {
-                              window.location.href = `/appplicant/${selected[0]}/${selected[1]}/compare`;
-                            }}>
-              Compare
-            </h3>:''}
+            </h3>
+            {selected.length > 1 ? (
+              <h3
+                className='addition mobileAddition'
+                onClick={() => {
+                  window.location.href = `/applicant/${selected[0]}/${selected[1]}/compare`;
+                }}>
+                Compare
+              </h3>
+            ) : (
+              ''
+            )}
             <div className='cards'>
               {data.map(applicant => {
                 return (
@@ -247,12 +257,18 @@ class Onboarding extends Component {
                 <input value={filterAll} onChange={filterAllFunction} placeholder='Search' />
                 <h3 className='addition' onClick={this.openModalHandler}>
                   + Add Applicant
-				</h3>				
-				{selected.length>1? <h3 className='addition' onClick={() => {
-                              window.location.href = `/appplicant/${selected[0]}/${selected[1]}/compare`;
-                            }}>
-					Compare
-				</h3>:''}
+                </h3>
+                {selected.length > 1 ? (
+                  <h3
+                    className='addition'
+                    onClick={() => {
+                      window.location.href = `/applicant/${selected[0]}/${selected[1]}/compare`;
+                    }}>
+                    Compare
+                  </h3>
+                ) : (
+                  ''
+                )}
               </div>
               <ReactTable
                 data={data}
