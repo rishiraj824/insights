@@ -101,7 +101,10 @@ class Onboarding extends Component {
       },
       {
         Header: 'Role',
-        accessor: 'role'
+        // accessor: 'role',
+        Cell: data => {
+          return jobConfig[data.original.role] ? jobConfig[data.original.role] : data.original.role;
+        }
       },
       {
         Header: 'Experience',
@@ -301,8 +304,8 @@ class Onboarding extends Component {
               <input required type='number' min='1' onChange={e => this.handleChange({ age: e.target.value })} placeholder='Age' />
 
               <select required onChange={e => this.handleChange({ role: e.target.value })}>
-                {Object.entries(jobConfig).map(({ name, value }) => (
-                  <option value={value}>{name}</option>
+                {Object.entries(jobConfig).map(([key, value]) => (
+                  <option value={key}>{value}</option>
                 ))}
               </select>
               <button
