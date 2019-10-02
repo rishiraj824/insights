@@ -128,7 +128,6 @@ export const updateTranscript = data => dispatch => {
 	})
 		.then(resp => {
 			return resp.json();
-			return;
 		})
 		.then(response => {
 			console.log(response);

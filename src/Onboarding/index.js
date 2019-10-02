@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect';
 import '../Mobile.css';
 import '../Table.css';
 import matchSorter from 'match-sorter';
-import { jobConfig } from '../config/jobConfig';
+import { jobConfig, getResolvedRoleName } from '../config/jobConfig';
 
 class Onboarding extends Component {
   constructor(props) {
@@ -228,7 +228,7 @@ class Onboarding extends Component {
                       </div>
                       <div key={2} className='mobileFields'>
                         <h4>Role</h4>
-                        <h5>{jobConfig[applicant.role] ? jobConfig[applicant.role] : applicant.role}</h5>
+                        <h5>{getResolvedRoleName(applicant.role)}</h5>
                       </div>
                       <div key={3} className='mobileFields'>
                         <h4>Age</h4>
@@ -238,14 +238,14 @@ class Onboarding extends Component {
                         {applicant.transcript === 'UNAVAILABLE' ? (
                           <button
                             onClick={() => {
-                              window.location.href = `/applicant/${data.original.id}/interview`;
+                              window.location.href = `/applicant/${applicant.id}/interview`;
                             }}>
                             Record
                           </button>
                         ) : (
                           <button
                             onClick={() => {
-                              window.location.href = `/applicant/${data.original.id}/interview`;
+                              window.location.href = `/applicant/${applicant.id}/interview`;
                             }}>
                             Record Again
                           </button>

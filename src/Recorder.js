@@ -7,6 +7,7 @@ import questions from './questions';
 import Dictaphone from './SpeechButton';
 import { getNavbar } from './components/nav';
 import { signOut, signOutAuthDialog } from './store/actions/authActions';
+import { getResolvedRoleName } from './config/jobConfig';
 
 class Recorder extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class Recorder extends Component {
           <div className='recorderTop recoderLayout'>
             <div className='details'>
               <h4 className='name'>{applicant.name}</h4>
-              <h4 className='role'>{applicant.role}</h4>
+              <h4 className='role'>{getResolvedRoleName(applicant.role)}</h4>
               <h4 className='age'>{applicant.age}</h4>
             </div>
             <div className='mic'>

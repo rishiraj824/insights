@@ -7,6 +7,7 @@ import { getNavbar } from '../components/nav';
 import { connect } from 'react-redux';
 import { getApplicant } from '../store/actions/applicants';
 import { signOut, signOutAuthDialog } from '../store/actions/authActions';
+import { getResolvedRoleName } from '../config/jobConfig';
 
 const dummyReport = {
   radarCharts: [
@@ -74,7 +75,7 @@ export class Report extends Component {
           {applicant.name && (
             <div className={'profile'}>
               <h3> {applicant.name} </h3>
-              <p> {applicant.role}</p>
+              <p> {getResolvedRoleName(applicant.role)}</p>
               <p> {applicant.experience} year experience</p>
             </div>
           )}
