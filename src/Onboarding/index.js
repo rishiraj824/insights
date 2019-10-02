@@ -133,12 +133,19 @@ class Onboarding extends Component {
       {
         Header: '',
         Cell: data => {
-          return (
+          return data.original.transcript === 'UNAVAILABLE' ? (
             <button
               onClick={() => {
                 window.location.href = `/applicant/${data.original.id}/interview`;
               }}>
               Record
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                window.location.href = `/applicant/${data.original.id}/interview`;
+              }}>
+              Record Again
             </button>
           );
         }
