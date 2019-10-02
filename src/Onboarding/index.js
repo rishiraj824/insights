@@ -234,8 +234,25 @@ class Onboarding extends Component {
                         <h4>Age</h4>
                         <h5>{applicant.age}</h5>
                       </div>
-                      {applicant.report && applicant.report.length > 0 && (
-                        <div key={3} className='mobileFields'>
+                      <div key={4} className='mobileFields'>
+                        {applicant.transcript === 'UNAVAILABLE' ? (
+                          <button
+                            onClick={() => {
+                              window.location.href = `/applicant/${data.original.id}/interview`;
+                            }}>
+                            Record
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              window.location.href = `/applicant/${data.original.id}/interview`;
+                            }}>
+                            Record Again
+                          </button>
+                        )}
+                      </div>
+                      {applicant.report !== 'UNAVAILABE' && applicant.report && (
+                        <div key={5} className='mobileFields'>
                           <button
                             onClick={() => {
                               window.location.href = `/applicant/${applicant.id}/report`;
