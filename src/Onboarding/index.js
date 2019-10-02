@@ -132,7 +132,7 @@ class Onboarding extends Component {
           return (
             <button
               onClick={() => {
-                window.location.href = `/applicant/${data.id}/interview`;
+                window.location.href = `/applicant/${data.original.id}/interview`;
               }}>
               Record
             </button>
