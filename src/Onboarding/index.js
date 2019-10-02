@@ -9,6 +9,7 @@ import { isMobile } from 'react-device-detect';
 import '../Mobile.css';
 import '../Table.css';
 import matchSorter from 'match-sorter';
+import { jobConfig } from '../config/jobConfig';
 
 class Onboarding extends Component {
   constructor(props) {
@@ -171,7 +172,7 @@ class Onboarding extends Component {
     const options = roles.map((role, i) => {
       return (
         <option key={i + role} value={role}>
-          {role}
+          {jobConfig[role] !== undefined ? jobConfig[role] : role}
         </option>
       );
     });
@@ -217,7 +218,7 @@ class Onboarding extends Component {
                       </div>
                       <div key={2} className='mobileFields'>
                         <h4>Role</h4>
-                        <h5>{applicant.role}</h5>
+                        <h5>{jobConfig[applicant.role] ? jobConfig[applicant.role] : applicant.role}</h5>
                       </div>
                       <div key={3} className='mobileFields'>
                         <h4>Age</h4>
@@ -248,27 +249,29 @@ class Onboarding extends Component {
               </div>
               {roles.map((roley, ind) => (
                 <div key={ind} onClick={roleFilter.bind(null, roley)} className={role === roley ? 'filterMain' : 'filter'}>
-                  {roley}
+                  {jobConfig[roley] !== undefined ? jobConfig[roley] : roley}
                 </div>
               ))}
             </div>
             <div className='table'>
-              <div className='actions'>
+              <div className='actions' style={{ justifyContent: 'space-between' }}>
                 <input value={filterAll} onChange={filterAllFunction} placeholder='Search' />
-                <h3 className='addition' onClick={this.openModalHandler}>
-                  + Add Applicant
-                </h3>
-                {selected.length > 1 ? (
-                  <h3
-                    className='addition'
-                    onClick={() => {
-                      window.location.href = `/applicant/${selected[0]}/${selected[1]}/compare`;
-                    }}>
-                    Compare
-                  </h3>
-                ) : (
-                  ''
-                )}
+                <div className='actions'>
+                  <button className='primaryButton' onClick={this.openModalHandler}>
+                    + Add Applicant
+                  </button>
+                  {selected.length > 1 ? (
+                    <button
+                      className='primaryButton'
+                      onClick={() => {
+                        window.location.href = `/applicant/${selected[0]}/${selected[1]}/compare`;
+                      }}>
+                      Compare
+                    </button>
+                  ) : (
+                    ''
+                  )}
+                </div>
               </div>
               <ReactTable
                 data={data}
@@ -279,7 +282,7 @@ class Onboarding extends Component {
                 onFilteredChange={onFilteredChange}
                 filtered={filtered}
                 multiSort={true}
-                showPagination={false}
+                showPagination={true}
                 showPageSizeOptions={false}
                 defaultPageSize={10}
                 resizable={false}
@@ -293,10 +296,15 @@ class Onboarding extends Component {
             <img alt='add' src='https://lh3.googleusercontent.com/P65rjcP3ZNAdcnicw0bD1WIc-oMaQWKob89NpThHFHT6fq1eJ30-Y3P2V3_dJSeGkwQG7YHCu8YDh4GbyjZ81qQ=s0' />
             <div className='form flex center column'>
               <h3>Add Applicant</h3>
-              <input onChange={e => this.handleChange({ name: e.target.value })} placeholder='Name' />
-              <input type='number' min='1' onChange={e => this.handleChange({ experience: e.target.value })} placeholder='Experience' />
-              <input type='number' min='1' onChange={e => this.handleChange({ age: e.target.value })} placeholder='Age' />
-              <input onChange={e => this.handleChange({ role: e.target.value })} placeholder='Job Role' />
+              <input required onChange={e => this.handleChange({ name: e.target.value })} placeholder='Name' />
+              <input required type='number' min='1' onChange={e => this.handleChange({ experience: e.target.value })} placeholder='Experience' />
+              <input required type='number' min='1' onChange={e => this.handleChange({ age: e.target.value })} placeholder='Age' />
+
+              <select required onChange={e => this.handleChange({ role: e.target.value })}>
+                {Object.entries(jobConfig).map(({ name, value }) => (
+                  <option value={value}>{name}</option>
+                ))}
+              </select>
               <button
                 className='primary margin-top-bottom-20'
                 onClick={() => {

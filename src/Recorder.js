@@ -35,7 +35,7 @@ class Recorder extends Component {
         {getNavbar(auth, signOut, signOutAuthDialog, showDialog)}
 
         <div className='recorder'>
-          <div className='recorderTop space-between flex wrap center'>
+          <div className='recorderTop recoderLayout'>
             <div className='details'>
               <h4 className='name'>{applicant.name}</h4>
               <h4 className='role'>{applicant.role}</h4>

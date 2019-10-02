@@ -51,6 +51,8 @@ ul {
 }
 
 input,
+select,
+option,
 textarea {
 	outline: 0;
 	border: 1px solid #ccc;
@@ -63,21 +65,35 @@ textarea {
 	border-style: solid;
 	border-width: 1px;
 	font-size: 16px;
-	color: rgba(0, 0, 0, 0.64)
+	color: rgba(0, 0, 0, 0.64);
+	min-width: 212px;
 }
 
 
 button {
+	font-weight: 700;
 	font-size: 14px;
 	color: #00abe6;
 	background-color: transparent;
 	padding: 4px;
 	-webkit-appearance: none;
-	min-width: 10rem;
+	min-width: 5rem;
+	margin-right: 1rem;
 	align-items: center;
 	border: none;
 	cursor: pointer;
 	transition: all 200ms;
+}
+
+.primaryButton{
+	width: fit-content;
+	font-size: 14px;
+	background-color: #00abe6;
+	color: white;
+	padding: 10px;
+	margin: 0 !important;
+	margin-left: 10px !important;
+	border-radius: 4px;
 }
 
 button:focus {

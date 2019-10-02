@@ -114,3 +114,8 @@
 	}
 	
 }
+
+.recoderLayout{
+	display: flex;
+	flex-direction: column;
+}

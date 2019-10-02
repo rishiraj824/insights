@@ -1,66 +1,73 @@
 .recorder {
-	background: #fff;
-	border-radius: 4px;
-	width: 70%;
-	margin-top: 3%;
-	margin-left: auto;
-	margin-right: auto;
+  background: #fff;
+  border-radius: 4px;
+  width: 70%;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .recorderTop {
-	padding: 48px 36px;
-	border-bottom: 1px solid #e5e5e5;
+  padding: 48px 36px;
+  border-bottom: 1px solid #e5e5e5;
 }
 .question-sets {
-	padding: 60px 36px;
+  padding: 60px 36px;
 }
 .question {
-	color: #191919;
-	font-weight: 500;
-	opacity: 0.64;
-	padding-right: 20px;
-	width: 60%;
+  color: #191919;
+  font-weight: 500;
+  opacity: 0.64;
+  padding-right: 20px;
+  width: 60%;
 }
 .solid {
-	opacity: 0.92;
-	border-radius: 32px;
-	background-color: #00abe6;
-	color: #fff;
-	height: 2rem;
+  opacity: 0.92;
+  border-radius: 32px;
+  background-color: #00abe6;
+  color: #fff;
+  height: 2rem;
 }
 .red {
-    background-color: #bc2c23 !important;
+  background-color: #bc2c23 !important;
 }
 .name {
-	font-weight: 600;
-	font-size: 15px;
-	color: #304046;
-	margin: 0;
-	margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #304046;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .role,
 .age {
-	font-weight: 400;
-	color: #304046;
-	margin: 4px 0;
-	font-size: 14px;
+  font-weight: 400;
+  color: #304046;
+  margin: 4px 0;
+  font-size: 14px;
 }
 .width-120 {
-	width: 120px;
+  width: 120px;
 }
 
 @keyframes blinker {
-	50% {
-		opacity: 0;
-	}
+  50% {
+    opacity: 0;
+  }
 }
 
 .signal {
-	height: 10px;
-	width: 10px;
-	margin-top: 12px;
-	margin-right: 12px;
-	border-radius: 50%;
-	background: rgb(255, 60, 60);
-	animation: blinker 1s linear infinite;
+  height: 10px;
+  width: 10px;
+  margin-top: 12px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: rgb(255, 60, 60);
+  animation: blinker 1s linear infinite;
+}
+@media screen and (max-width: 780px) {
+  .signal {
+    position: absolute;
+    top: 6rem;
+    right: 2rem;
+  }
 }

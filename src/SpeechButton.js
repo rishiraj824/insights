@@ -32,17 +32,18 @@ const Dictaphone = ({
   return (
     <>
       <div className='flex'>
-        {listening && <span className='signal' />}
-        <a href='/' className={'linkbutton'}>
-          Cancel
-        </a>
-
         <button onClick={listening ? stopListening : startListening} className='solid'>
           {listening ? 'Stop' : 'Start'}
         </button>
-      </div>
+        {listening && <span className='signal' />}
 
+        <a href='/' className={'linkbutton'}>
+          Cancel
+        </a>
+      </div>
+      <br></br>
       <h5 className='name'>{transcript}</h5>
+      <br></br>
       {transcript.length > 0 && (
         <button
           onClick={() => {

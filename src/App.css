@@ -148,6 +148,7 @@ img {
   font-size: 14px;
   cursor: pointer;
   color: #000000;
+  margin: 0.4rem;
 }
 .filters {
   width: 15%;
@@ -165,8 +166,12 @@ img {
 }
 .actions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.actions h3{
+  margin-left: 12px;
 }
 .table {
   width: 70%;

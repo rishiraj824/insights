@@ -14,12 +14,16 @@
     width: 50%;
 }
 .mobileFields h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
     margin: 0;
     color: #777d7f;
     font-size: 12px;
     text-transform: uppercase;
 }
 .mobileFields h5 {
+    text-overflow: ellipsis;
+    overflow: hidden;
     margin: 0;
     font-size: 14px;
     font-weight: 300;
