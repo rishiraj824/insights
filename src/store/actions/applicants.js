@@ -124,7 +124,7 @@ export const updateTranscript = data => dispatch => {
 			Accept: "application/json",
 			"Content-Type": "application/json"
 		},
-		body: JSON.stringify({ profile: "DESIGN_MIDDLE", text: data.transcript })
+		body: JSON.stringify({ profile: data.role, text: data.transcript })
 	})
 		.then(resp => {
 			return resp.json();
