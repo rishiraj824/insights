@@ -64,9 +64,12 @@
         position: relative;
     }
     .ReactModal__Content {
-        width: 75%;
-        margin: 0 auto;
-        height: 401px;
+        padding: 10px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: calc(100vw - 40px);
+        margin: 0 !important;
+        height: fit-content;
     }
 }
 

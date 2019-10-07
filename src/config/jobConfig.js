@@ -1,7 +1,6 @@
 export const jobConfig = {
-  FRONTEND_ENGINEER: 'Frontend Engineer',
-  MACHINE_LEARNING_ENGINEER: 'Machine Learning Engineer',
-  UI_DESIGNER: 'UI Designer'
+  DESIGN_MIDDLE: 'Designer (Lateral)',
+  DESIGN_BOTTOM: 'Designer (Fresher)'
 };
 
 export const getResolvedRoleName = role => (jobConfig[role] !== undefined ? jobConfig[role] : role);
