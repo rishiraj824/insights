@@ -21,7 +21,7 @@
     "react-sidebar": "^3.0.2",
     "react-speech-recognition": "^2.0.1",
     "react-table": "^6.10.0",
-    "recharts": "^1.6.2",
+    "recharts": "^2.1.14",
     "redux": "^4.0.1",
     "redux-firestore": "^0.8.0",
     "redux-logger": "^3.0.6",
